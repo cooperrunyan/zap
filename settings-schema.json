@@ -1,0 +1,523 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Zap Settings",
+  "description": "Settings for Zap terminal app",
+  "type": "object",
+  "properties": {
+    "window": {
+      "title": "Window",
+      "description": "Namespace for settings that relate to the window",
+      "type": "object",
+
+      "properties": {
+        "style": {
+          "title": "Style",
+          "description": "Namespace for settings that relate to window styles",
+          "type": "object",
+
+          "properties": {
+            "padding": {
+              "title": "Padding",
+              "$comment": "This should be valid CSS (padding property)",
+              "examples": ["10px", "2px, 8px", "4px, 6px, 8px, 10px"],
+              "default": "6px, 14px",
+              "description": "Space around the terminal content",
+              "type": "string"
+            },
+            "opacity": {
+              "title": "Opacity",
+              "default": 1,
+              "description": "Opacity of the window between 0 and 1 (Percentage)",
+              "$comment": "Only for MacOS and Windows",
+              "minimum": 0,
+              "maximum": 1,
+              "type": "number",
+              "examples": ["1", "0", "0.3", "0.56"]
+            },
+            "showShadow": {
+              "title": "Show Shadow",
+              "default": true,
+              "description": "Whether or not to show a shadow under the window",
+              "type": "boolean",
+              "examples": ["true", "false"]
+            },
+            "vibrancy": {
+              "title": "Vibrancy",
+              "description": "Add a vibrancy effect to the window",
+              "$comment": "Only for MacOS",
+              "type": "string",
+              "default": "undefined",
+              "pattern": "appearance-based|light|dark|titlebar|selection|menu|popover|sidebar|medium-light|ultra-dark|header|sheet|window|hud|fullscreen-ui|tooltip|content|under-window|under-page",
+              "examples": [
+                "appearance-based",
+                "light",
+                "dark",
+                "titlebar",
+                "selection",
+                "menu",
+                "popover",
+                "sidebar",
+                "medium-light",
+                "ultra-dark",
+                "header",
+                "sheet",
+                "window",
+                "hud",
+                "fullscreen-ui",
+                "tooltip",
+                "content",
+                "under-window",
+                "under-page"
+              ]
+            }
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions",
+          "description": "Controls the size of the window",
+          "type": "object",
+          "properties": {
+            "initialWidth": {
+              "title": "Initial Width",
+              "description": "Initial width of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": 1575
+            },
+            "initialHeight": {
+              "title": "Initial Height",
+              "description": "Initial height of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": 775
+            },
+            "minHeight": {
+              "title": "Minimum Height",
+              "description": "Minimum height of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": 100
+            },
+            "maxHeight": {
+              "title": "Maximum Height",
+              "description": "Maximum height of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": "undefined"
+            },
+            "minWidth": {
+              "title": "Minimum Width",
+              "description": "Minimum width of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": 100
+            },
+            "maxWidth": {
+              "title": "Maximum Width",
+              "description": "Maximum width of the window",
+              "type": "integer",
+              "$comment": "Units are in pixels",
+              "default": "undefined"
+            }
+          }
+        },
+        "position": {
+          "title": "Position",
+          "description": "Settings for positioning the window when the app launches",
+          "type": "object",
+          "properties": {
+            "center": {
+              "title": "Center",
+              "type": "boolean",
+              "description": "Whether or not to center the window on the screen when first launched",
+              "default": true
+            },
+            "initial": {
+              "title": "Initial",
+              "type": "object",
+              "description": "Initial X/Y coordinates of the window",
+              "properties": {
+                "x": {
+                  "title": "X",
+                  "type": "integer",
+                  "description": "Left offset of the window on the screen (when launched)",
+                  "default": "undefined",
+                  "$comment": "Required if \"y\" is set"
+                },
+                "y": {
+                  "title": "Y",
+                  "type": "integer",
+                  "description": "Top offset of the window on the screen (when launched)",
+                  "default": "undefined",
+                  "$comment": "Required if \"x\" is set"
+                }
+              }
+            }
+          }
+        },
+        "can": {
+          "title": "Can",
+          "description": "Permissions that the window is given",
+          "type": "object",
+          "properties": {
+            "move": {
+              "title": "Can Move",
+              "type": "boolean",
+              "description": "Whether or not the window can be moved",
+              "default": true
+            },
+            "maximize": {
+              "title": "Can Maximize",
+              "type": "boolean",
+              "description": "Whether or not the window can be maximized",
+              "default": true
+            },
+            "minimize": {
+              "title": "Can Minimize",
+              "type": "boolean",
+              "description": "Whether or not the window can be minimizedd",
+              "default": true
+            },
+            "close": {
+              "title": "Can Close",
+              "type": "boolean",
+              "description": "Whether or not the window can be closed",
+              "default": true
+            },
+            "resize": {
+              "title": "Can Resize",
+              "type": "boolean",
+              "description": "Whether or not the window can be resized",
+              "default": true
+            },
+            "beLargerThanScreen": {
+              "title": "Can Be Larger Than Screen",
+              "type": "boolean",
+              "description": "Whether or not the window can be larger than the screen",
+              "default": false
+            }
+          }
+        },
+        "useNativeAppBar": {
+          "title": "Use Native App Bar",
+          "type": "boolean",
+          "description": "Use the native app bar instead of a custom one",
+          "default": false
+        },
+        "acceptFirstMouse": {
+          "title": "Accept First Mouse",
+          "type": "boolean",
+          "description": "When the window is not focused, this controls whether or not a click on the window will either only focus it, or focus it, as well as registering the click",
+          "$comment": "Similar to MouseClickEvent.stopPropagation()",
+          "default": false
+        },
+        "remainOnTop": {
+          "title": "Remain On Top",
+          "type": "boolean",
+          "default": false,
+          "description": "Controls whether or not the window should always stay on top or not"
+        },
+        "paintWhenInitiallyHidden": {
+          "title": "Paint When Initially Hidden",
+          "type": "boolean",
+          "default": true,
+          "description": "When the window is launched, but not shown, this controls whether the renderer should start running or wait until the window is in view"
+        },
+        "showInitially": {
+          "title": "Show Initially",
+          "default": true,
+          "type": "boolean",
+          "description": "When starting the application, show the window or keep it hidden"
+        }
+      }
+    },
+    "theme": {
+      "title": "Theme",
+      "type": "object",
+      "description": "Properties to customize coloration",
+      "properties": {
+        "foregroundColor": {
+          "title": "Foreground Color",
+          "type": "string",
+          "default": "#ccd5e5",
+          "description": "Default text color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "backgroundColor": {
+          "title": "Background Color",
+          "type": "string",
+          "default": "#000",
+          "description": "Default background color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "selectionColor": {
+          "title": "Selection Color",
+          "type": "string",
+          "default": "#1e2025",
+          "description": "Default selection color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "black": {
+          "title": "Black",
+          "type": "string",
+          "default": "#000",
+          "description": "black color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightBlack": {
+          "title": "Light Black",
+          "type": "string",
+          "default": "#49525f",
+          "description": "lightBlack color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "red": {
+          "title": "Red",
+          "type": "string",
+          "default": "#ff5562",
+          "description": "red color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightRed": {
+          "title": "Light Red",
+          "type": "string",
+          "default": "#ff5562",
+          "description": "lightRed color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "green": {
+          "title": "Green",
+          "type": "string",
+          "default": "#8dcf5e",
+          "description": "green color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightGreen": {
+          "title": "Light Green",
+          "type": "string",
+          "default": "#8dcf5e",
+          "description": "lightGreen color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "blue": {
+          "title": "Blue",
+          "type": "string",
+          "default": "#4da5ff",
+          "description": "blue color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightBlue": {
+          "title": "Light Blue",
+          "type": "string",
+          "default": "#4da5ff",
+          "description": "lightBlue color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "yellow": {
+          "title": "Yellow",
+          "type": "string",
+          "default": "#d09953",
+          "description": "yellow color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightYellow": {
+          "title": "Light Yellow",
+          "type": "string",
+          "default": "#d09953",
+          "description": "lightYellow color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "magenta": {
+          "title": "Magenta",
+          "type": "string",
+          "default": "#cf62ff",
+          "description": "magenta color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightMagenta": {
+          "title": "Light Magenta",
+          "type": "string",
+          "default": "#cf62ff",
+          "description": "lightMagenta color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "cyan": {
+          "title": "Cyan",
+          "type": "string",
+          "default": "#46c3d9",
+          "description": "cyan color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightCyan": {
+          "title": "Light Cyan",
+          "type": "string",
+          "default": "#46c3d9",
+          "description": "lightCyan color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+
+        "white": {
+          "title": "White",
+          "type": "string",
+          "default": "#abb2bf",
+          "description": "white color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "lightWhite": {
+          "title": "Light White",
+          "type": "string",
+          "default": "#abb2bf",
+          "description": "lightWhite color (CSS)",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        }
+      }
+    },
+    "cursor": {
+      "title": "Cursor",
+      "type": "object",
+      "description": "Settings to style the cursor",
+      "properties": {
+        "color": {
+          "title": "Color",
+          "type": "string",
+          "default": "#fff",
+          "description": "Color of the cursor",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "accentColor": {
+          "title": "Accent Color",
+          "type": "string",
+          "default": "#000",
+          "description": "Accent colors of the cursor",
+          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
+        },
+        "width": {
+          "title": "Width",
+          "type": "number",
+          "description": "Pixel value for the width of the cursor, when in \"bar\" mode",
+          "default": 1,
+          "examples": [1, 2, 1.2, 0, 3]
+        },
+        "style": {
+          "title": "Style",
+          "type": "string",
+          "pattern": "bar|block|underline",
+          "default": "bar",
+          "examples": ["bar", "block", "underline"],
+          "description": "Shape of the cursor"
+        },
+        "blink": {
+          "title": "Blink",
+          "type": "boolean",
+          "description": "Whether or not the cursor should blink",
+          "default": true
+        }
+      }
+    },
+    "shell": {
+      "title": "Shell",
+      "type": "object",
+      "description": "Shell settings",
+      "properties": {
+        "name": {
+          "title": "Shell Name",
+          "type": "string",
+          "default": "zsh",
+          "description": "Name of the shell to run",
+          "examples": ["zsh", "sh", "bash", "fish"]
+        },
+        "shellArgs": {
+          "title": "Shell Args",
+          "type": "array",
+          "description": "Arguments to be passed into the shell at startup",
+          "examples": [["--login"]]
+        }
+      }
+    },
+    "font": {
+      "name": "Font",
+      "description": "Settings to control font appearance",
+      "type": "object",
+      "properties": {
+        "family": {
+          "title": "Font Family",
+          "description": "The font family to be displayed in the terminal (valid CSS font-family property)",
+          "type": "string",
+          "default": "Consolas, \"Roboto Mono\", Menlo, monospace"
+        },
+        "size": {
+          "title": "Font Size",
+          "description": "The pixel value for the size of the terminal font",
+          "type": "number",
+          "default": 14,
+          "examples": [14, 16]
+        },
+        "weight": {
+          "title": "Font Weight",
+          "description": "CSS font-weight property",
+          "type": "string",
+          "default": "normal",
+          "pattern": "100|200|300|400|500|600|700|800|900|normal|bold",
+          "examples": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
+        },
+        "weightBold": {
+          "title": "Bold Font Weight",
+          "description": "The font weight to show for bold text",
+          "type": "string",
+          "default": "bold",
+          "pattern": "100|200|300|400|500|600|700|800|900|normal|bold",
+          "examples": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
+        },
+        "lineHeight": {
+          "title": "Line Height",
+          "type": "number",
+          "description": "How tall each line is (Percentage)",
+          "default": 1.2,
+          "examples": [1.2, 1, 0.9, 1.8]
+        },
+        "letterSpacing": {
+          "title": "Letter Spacing",
+          "type": "number",
+          "description": "How far apart each letter is (px)",
+          "default": -0.01,
+          "examples": [0.03, -0.02]
+        }
+      }
+    },
+    "dark": {
+      "type": "boolean",
+      "title": "Dark",
+      "description": "Whether to use dark or light icon",
+      "default": "true"
+    }
+  }
+}

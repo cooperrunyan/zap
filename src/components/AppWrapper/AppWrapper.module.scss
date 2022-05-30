@@ -1,0 +1,23 @@
+$bh: 44px;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100vw;
+
+  &_Bar {
+    height: $bh;
+    -webkit-app-region: drag;
+  }
+
+  &_Content {
+    height: calc(100vh - #{$bh});
+    display: flex;
+    flex-direction: column;
+
+    &.native {
+      height: 100vh;
+    }
+  }
+}
