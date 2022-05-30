@@ -34,21 +34,10 @@ app.whenReady().then(() => {
   createWindow();
 
   app.on('activate', () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 
-  const dockMenu = Menu.buildFromTemplate([
-    {
-      label: 'New Window',
-      click() {
-        createWindow();
-      }
-    }
-  ]);
-
-  app.dock?.setMenu(dockMenu);
+  app.dock?.setMenu(Menu.buildFromTemplate([{ label: 'New Window', click: createWindow }]));
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
