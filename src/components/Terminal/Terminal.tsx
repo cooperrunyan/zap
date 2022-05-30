@@ -9,23 +9,25 @@ export const Terminal: React.FC = () => {
   const settings = window.electron.api.settings.get();
   const parent = useRef<HTMLDivElement>(null);
 
+  const id = new URL(location.href).searchParams.get('id');
+
   const resize = () => {
     fitAddon.fit();
     const { cols, rows } = term.current!.terminal;
-    window.electron.api.emit('x-term-resize', String(cols), String(rows));
+    window.electron.api.emit(`x-term-resize-${id}`, String(cols), String(rows));
   };
 
   useEffect(() => {
     parent.current!.style.padding = settings.window.style.padding;
     resize();
 
-    window.electron.api.on('x-stdout', (stdout: string) => {
+    window.electron.api.on(`x-stdout-${id}`, (stdout: string) => {
       term.current!.terminal.write(stdout);
     });
     window.addEventListener('resize', resize);
 
     return () => {
-      window.electron.api.off('x-stdout');
+      window.electron.api.off(`x-stdout-${id}`);
       window.removeEventListener('resize', resize);
     };
   }, []);
@@ -35,7 +37,7 @@ export const Terminal: React.FC = () => {
       <XTerm
         addons={[fitAddon]}
         ref={term}
-        onData={(str) => window.electron.api.emit('x-stdin', str)}
+        onData={(str) => window.electron.api.emit(`x-stdin-${id}`, str)}
         options={{
           rendererType: 'dom',
           cursorBlink: settings.cursor.blink,
@@ -48,7 +50,6 @@ export const Terminal: React.FC = () => {
           letterSpacing: settings.font.letterSpacing,
           lineHeight: settings.font.lineHeight,
           windowsMode: settings.os === 'win32',
-          // minimumContrastRatio: 5,
           theme: {
             background: settings.theme.backgroundColor,
             black: settings.theme.black,

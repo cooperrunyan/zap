@@ -13,13 +13,19 @@ export function terminal(win: BrowserWindow) {
     env: Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any
   });
 
-  ipcMain.on('x-term-resize', (_, cols, rows) => pty.resize(+cols, +rows));
+  ipcMain.on(`x-term-resize-${win.id}`, (_, cols, rows) => pty.resize(+cols, +rows));
 
-  ipcMain.on('x-stdin', (_, stdin: string) => {
+  ipcMain.on(`x-stdin-${win.id}`, (_, stdin: string) => {
     pty.write(stdin.valueOf());
   });
 
   pty.onData((stdout) => {
-    win.webContents.send('x-stdout', stdout);
+    win.webContents.send(`x-stdout-${win.id}`, stdout);
   });
+
+  return () => {
+    pty.kill();
+    ipcMain.removeAllListeners(`x-term-resize-${win.id}`);
+    ipcMain.removeAllListeners(`x-stdin-${win.id}`);
+  };
 }

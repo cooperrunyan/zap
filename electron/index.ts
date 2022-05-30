@@ -11,13 +11,15 @@ function createWindow() {
   const win = new BrowserWindow(winOptions);
 
   // and load the index.html of the app.
-  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}`);
-  else win.loadFile(join(__dirname, '../src/out/index.html'));
+  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
+  else win.loadFile(join(__dirname, `../src/out/index.html#id=${win.id}`));
 
-  terminal(win);
+  const teardown = terminal(win);
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();
+
+  win.on('close', teardown);
 }
 
 // This method will be called when Electron has finished
