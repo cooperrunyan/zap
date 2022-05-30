@@ -14,10 +14,6 @@ function createWindow() {
   if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}`);
   else win.loadFile(join(__dirname, '../src/out/index.html'));
 
-  console.log(__dirname);
-
-  console.log(join(__dirname, '../src/out/index.html'));
-
   terminal(win);
 
   // Open the DevTools.
