@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "EPL-2.0",
   "main": "main/index.js",
-  "productName": "zap",
+  "productName": "Zap",
   "author": "Cooper Runyan",
   "description": "Terminal app",
   "scripts": {
@@ -17,11 +17,13 @@
     "dist": "npm run build && electron-builder",
     "pack": "npm run build && electron-builder --dir",
     "clean": "rimraf dist main src/out",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^1.2.0",
     "electron-is-dev": "^2.0.0",
+    "fs-extra": "^10.1.0",
     "node-pty": "^0.10.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -33,18 +35,19 @@
     "yaml": "^2.1.0"
   },
   "devDependencies": {
-    "electron-rebuild": "^3.2.7",
     "@types/node": "^17.0.22",
     "@types/react": "16.14.0",
     "@types/react-dom": "^16.9.16",
     "concurrently": "^7.0.0",
     "electron": "^17.1.2",
-    "electron-builder": "^22.14.13",
+    "electron-builder": "^23.0.3",
+    "electron-rebuild": "^3.2.7",
     "prettier": "2.6.0",
     "typescript": "^4.6.2"
   },
   "build": {
     "asar": true,
+    "icon": "./resources/icon.icns",
     "files": [
       "main",
       "src/out"

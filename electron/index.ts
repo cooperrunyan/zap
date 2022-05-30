@@ -11,7 +11,12 @@ function createWindow() {
   const win = new BrowserWindow(winOptions);
 
   // and load the index.html of the app.
-  win?.loadURL(isDev ? `http://localhost:${process.env.PORT || 3000}` : join(__dirname, '../src/out/index.html'));
+  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}`);
+  else win.loadFile(join(__dirname, '../src/out/index.html'));
+
+  console.log(__dirname);
+
+  console.log(join(__dirname, '../src/out/index.html'));
 
   terminal(win);
 
