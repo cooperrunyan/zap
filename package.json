@@ -9,13 +9,14 @@
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
-    "dev:electron": "npm run build:electron && electron .",
+    "dev:electron": "yarn build:electron && electron .",
     "rebuild": "electron-rebuild",
-    "build": "npm run build:vite && npm run build:electron",
+    "build": "yarn build:cli && yarn build:vite && yarn build:electron",
     "build:vite": "vite build",
     "build:electron": "tsc -p electron",
-    "dist": "npm run build && electron-builder",
-    "pack": "npm run build && electron-builder --dir",
+    "build:cli": "cd ./cli && go build . && cd ..",
+    "dist": "yarn build && electron-builder",
+    "pack": "yarn build && electron-builder --dir",
     "clean": "rimraf dist main src/out",
     "type-check": "tsc",
     "postinstall": "electron-builder install-app-deps"
@@ -54,6 +55,9 @@
     ],
     "directories": {
       "buildResources": "resources"
-    }
+    },
+    "extraResources": [
+      "cli/zap"
+    ]
   }
 }
