@@ -14,7 +14,7 @@
     "build": "yarn build:cli && yarn build:vite && yarn build:electron",
     "build:vite": "vite build",
     "build:electron": "tsc -p electron",
-    "build:cli": "cd ./cli && go build . && cd ..",
+    "build:cli": "deno compile -A --unstable --output cli/zap ./cli/index.ts",
     "dist": "yarn build && electron-builder",
     "pack": "yarn build && electron-builder --dir",
     "clean": "rimraf dist main src/out",
