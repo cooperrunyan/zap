@@ -12,7 +12,12 @@ function createWindow() {
 
   // and load the index.html of the app.
   if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
-  else win.loadFile(join(__dirname, `../src/out/index.html#id=${win.id}`));
+  else
+    win.loadFile(join(__dirname, `../src/out/index.html`), {
+      query: {
+        id: String(win.id)
+      }
+    });
 
   const teardown = terminal(win);
 
