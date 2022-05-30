@@ -2,7 +2,7 @@
 import { join } from 'path';
 
 // Packages
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, app, Menu } from 'electron';
 import isDev from 'electron-is-dev';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
@@ -31,6 +31,17 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+
+  const dockMenu = Menu.buildFromTemplate([
+    {
+      label: 'New Window',
+      click() {
+        createWindow();
+      }
+    }
+  ]);
+
+  app.dock?.setMenu(dockMenu);
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
