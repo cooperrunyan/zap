@@ -1,4 +1,5 @@
 import { cliffy } from '../../../deps.ts';
+import { getAppPath } from '../../lib/getAppPath.ts';
 
 export const open = new cliffy.Command();
 
@@ -7,8 +8,9 @@ open
   .description('Open a specified directory with Zap')
   .arguments('[directory:string]')
   .default('.')
-  .action((options, directory = '.') => openDirectory(directory));
+  .action((_, directory = '.') => openDirectory(directory));
 
-export function openDirectory(dir: string) {
-  console.log(dir);
+export async function openDirectory(dir: string) {
+  const zapPath = await getAppPath();
+  console.log(zapPath);
 }

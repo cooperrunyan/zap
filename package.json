@@ -7,7 +7,7 @@
   "author": "Cooper Runyan",
   "description": "Terminal app",
   "scripts": {
-    "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
+    "dev": "concurrently \"yarn dev:vite\" \"yarn dev:electron\"",
     "dev:vite": "vite",
     "dev:electron": "yarn build:electron && electron .",
     "rebuild": "electron-rebuild",
@@ -51,6 +51,9 @@
       "main",
       "src/out"
     ],
+    "win": {
+      "icon": "./resources/assets/icon/dark/icon.ico"
+    },
     "directories": {
       "buildResources": "resources"
     },
