@@ -1,5 +1,6 @@
 import { chalk, cliffy } from '../../../../deps.ts';
 import { findConfig } from '../../../lib/findConfig.ts';
+import { getKey } from '../../../lib/getKey.ts';
 import { getSettings } from '../../../lib/getSettings.ts';
 import { KeyType } from '../../../lib/KeyType.ts';
 import { println } from '../../../lib/println.ts';
@@ -43,14 +44,3 @@ get
       helpWith(key);
     }
   });
-
-function getKey<ObjectType>(object: ObjectType, path: string) {
-  try {
-    const keys = path.split('.');
-    let result = object;
-    for (const key of keys) result = (result as any)[key];
-    return result;
-  } catch {
-    return null;
-  }
-}
