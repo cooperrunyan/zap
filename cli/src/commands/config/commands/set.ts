@@ -26,6 +26,8 @@ set
     if (newSettings === 'cannot change directly')
       return println(`\n  ${chalk.red.bold('Error occured:')}\n\n    That key cannot be directly changed.\n`);
 
+    if (typeof newSettings === 'string') return;
+
     const path = await getSettingsPath();
     if (!path) return println(`\n  ${chalk.red.bold('Error occured:')}\n\n    Could not find .zaprc.yaml file.`);
 
