@@ -1,15 +1,20 @@
 import schema from '../../../settings-schema.json' assert { type: 'json' };
-import { cliffy } from '../../deps.ts';
+import { chalk, cliffy } from '../../deps.ts';
+import { println } from './println.ts';
 
 export class KeyType extends cliffy.Type<string> {
-  public parse({ label, name, value, type }: cliffy.ITypeInfo) {
+  public parse({ value }: cliffy.ITypeInfo) {
     if (!this.values().includes(value)) {
-      throw new Error(
-        `${label} "${name}" must be of type "${type}", but got "${value}". Valid options are: '${Object.keys(
-          schema.properties
-        ).join("', '")}'`
+      println(
+        `\n  ${chalk.red.bold('Error:')}\n\n    Invalid key: ${chalk.green(`"${value}"`)}\n\n  ${chalk.bold(
+          'Acceptable Keys:'
+        )}\n\n${this.values()
+          .map((key) => `    ${chalk.red('-')} ${chalk.blue(key)}`)
+          .join('\n')}\n`
       );
+      Deno.exit(1);
     }
+
     return value;
   }
 

@@ -8,5 +8,5 @@ set
   .description('Set the value of a certain config setting')
   .arguments('<key:string> <value:string>')
   .action(async (options, key, value) => {
-    await println(key, value);
+    println(key, value);
   });

@@ -30,7 +30,7 @@ const helpWith = async (key: string | undefined) => {
 
   const minKeyLength = obj.default ? 9 : 6;
 
-  await println(
+  println(
     `
   ${chalk.bold('Key:  '.padEnd(minKeyLength))} ${chalk.cyan(key || 'base')}
   ${chalk.bold('Type: '.padEnd(minKeyLength))} ${chalk.magenta(type)} ${
@@ -46,21 +46,24 @@ const helpWith = async (key: string | undefined) => {
     `
   );
   if (children) {
-    await println(chalk.bold('Children:\n'));
+    println(chalk.bold('Children:\n'));
     for (const [keyname, value] of Object.entries(children)) {
-      await println(
+      println(
         `    ${chalk.blue(keyname.padEnd(maxChildNameLength))}  ${chalk.magenta(
           (value as any).type.padEnd(maxChildTypeLength)
         )}  ${chalk.red('-')} ${(value as any).description}`
       );
     }
-    await println('');
+    println('');
   }
   if (obj.examples) {
-    await println(chalk.bold('Examples:\n'));
+    println(chalk.bold('Examples:\n'));
     for (const ex of obj.examples) {
-      await println(`    ${chalk.red('-')} ${chalk.green(`"${ex}"`)}`);
+      println(`    ${chalk.red('-')} ${chalk.green(`"${ex}"`)}`);
     }
-    await println('');
+    println('');
+  }
+  if (obj.$comment) {
+    println(`  ${chalk.bold('Comment:')}\n\n    ${obj.$comment}\n`);
   }
 };

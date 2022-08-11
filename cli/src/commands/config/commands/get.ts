@@ -8,5 +8,5 @@ get
   .description('Get the value of a certain config setting')
   .arguments('<key:string>')
   .action(async (options, key) => {
-    await println(key);
+    println(key);
   });

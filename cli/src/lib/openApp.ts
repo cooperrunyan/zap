@@ -6,7 +6,7 @@ export async function openApp(args?: string[]) {
   const zapPath = await getAppPath();
 
   if (!zapPath) {
-    await println(
+    println(
       `\n  ${chalk.bold.red('Error:')}\n\n    There was a problem locating the path to Zap. Zap may be corrupt.\n`
     );
     Deno.exit(1);
