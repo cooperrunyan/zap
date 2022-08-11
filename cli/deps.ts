@@ -4,3 +4,4 @@ export { exists } from 'https://deno.land/std@0.141.0/fs/mod.ts';
 // @deno-types="https://deno.land/x/chalk_deno@v4.1.1-deno/index.d.ts"
 import { Chalk } from 'https://deno.land/x/chalk_deno@v4.1.1-deno/source/index.js';
 export const chalk = new Chalk();
+export * as yaml from 'https://deno.land/std@0.148.0/encoding/yaml.ts';

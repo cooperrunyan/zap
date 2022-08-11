@@ -18,10 +18,8 @@ help
     helpWith(key);
   });
 
-const helpWith = async (key: string | undefined) => {
+export const helpWith = async (key: string | undefined) => {
   const obj: any = key ? await findConfig(key) : schema;
-
-  console.log(obj);
 
   const { description, type, properties: children } = obj as any;
 
