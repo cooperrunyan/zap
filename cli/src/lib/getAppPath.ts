@@ -20,7 +20,7 @@ export async function getAppPath() {
   await Promise.all(searches.map((search) => search.exists));
 
   for (const search of searches) {
-    if (await search.exists) return search.os;
+    if (await search.exists) return map[search.os];
   }
 }
 

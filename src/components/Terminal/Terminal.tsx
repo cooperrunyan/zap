@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { XTerm } from 'xterm-for-react';
 import { FitAddon } from 'xterm-addon-fit';
+import { XTerm } from 'xterm-for-react';
 import style from './Terminal.module.scss';
 
 export const Terminal: React.FC = () => {

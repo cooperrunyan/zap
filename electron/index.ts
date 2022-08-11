@@ -2,13 +2,18 @@
 import { join } from 'path';
 
 // Packages
-import { BrowserWindow, app, Menu } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import isDev from 'electron-is-dev';
+import yargs from 'yargs';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
-function createWindow() {
+async function createWindow() {
   const win = new BrowserWindow(winOptions);
+
+  const argv = await yargs.option('dir', {
+    type: 'string'
+  }).argv;
 
   // and load the index.html of the app.
   if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
@@ -19,7 +24,7 @@ function createWindow() {
       }
     });
 
-  const teardown = terminal(win);
+  const teardown = terminal(win, argv.dir || null);
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();
@@ -30,8 +35,8 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
-  createWindow();
+app.whenReady().then(async () => {
+  await createWindow();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();

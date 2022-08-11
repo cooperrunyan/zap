@@ -2,14 +2,14 @@ import { BrowserWindow, ipcMain } from 'electron';
 import { spawn } from 'node-pty';
 import { SettingsManager } from './settings';
 
-export function terminal(win: BrowserWindow) {
+export function terminal(win: BrowserWindow, dir: string | null) {
   const shell = new SettingsManager().getSettings().shell;
 
   const pty = spawn(shell.name, shell.shellArgs, {
     name: 'xterm-256color',
     cols: 80,
     rows: 30,
-    cwd: process.env.HOME,
+    cwd: dir || process.env.HOME,
     env: Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any
   });
 
