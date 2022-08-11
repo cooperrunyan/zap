@@ -47,7 +47,7 @@
               "description": "Add a vibrancy effect to the window",
               "$comment": "Only for MacOS",
               "type": "string",
-              "default": "undefined",
+              "default": "null",
               "pattern": "appearance-based|light|dark|titlebar|selection|menu|popover|sidebar|medium-light|ultra-dark|header|sheet|window|hud|fullscreen-ui|tooltip|content|under-window|under-page",
               "examples": [
                 "appearance-based",
@@ -97,28 +97,28 @@
               "description": "Minimum height of the window",
               "type": "integer",
               "$comment": "Units are in pixels",
-              "default": 100
+              "default": 190
             },
             "maxHeight": {
               "title": "Maximum Height",
               "description": "Maximum height of the window",
               "type": "integer",
               "$comment": "Units are in pixels",
-              "default": "undefined"
+              "default": "null"
             },
             "minWidth": {
               "title": "Minimum Width",
               "description": "Minimum width of the window",
               "type": "integer",
               "$comment": "Units are in pixels",
-              "default": 100
+              "default": 370
             },
             "maxWidth": {
               "title": "Maximum Width",
               "description": "Maximum width of the window",
               "type": "integer",
               "$comment": "Units are in pixels",
-              "default": "undefined"
+              "default": "null"
             }
           }
         },
@@ -142,14 +142,14 @@
                   "title": "X",
                   "type": "integer",
                   "description": "Left offset of the window on the screen (when launched)",
-                  "default": "undefined",
+                  "default": "null",
                   "$comment": "Required if \"y\" is set"
                 },
                 "y": {
                   "title": "Y",
                   "type": "integer",
                   "description": "Top offset of the window on the screen (when launched)",
-                  "default": "undefined",
+                  "default": "null",
                   "$comment": "Required if \"x\" is set"
                 }
               }

@@ -4,21 +4,21 @@ export const defaultSettings = (platform: string) => ({
       padding: '2px 6px 6px 14px',
       opacity: 1,
       showShadow: true,
-      vibrancy: undefined
+      vibrancy: null
     },
     dimensions: {
       initialWidth: 1575,
       initialHeight: 775,
       minHeight: 190,
       minWidth: 370,
-      maxWidth: undefined,
-      maxHeight: undefined
+      maxWidth: null,
+      maxHeight: null
     },
     position: {
       center: true,
       initial: {
-        x: undefined,
-        y: undefined
+        x: null,
+        y: null
       }
     },
 

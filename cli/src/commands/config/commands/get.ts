@@ -8,14 +8,46 @@ import { helpWith } from './help.ts';
 
 export const get = new cliffy.Command();
 
+const keyType = new KeyType();
+const values = keyType.values();
+
 get
   .name('get')
-  .type('Key', new KeyType())
+  .type('Key', keyType)
   .arguments('[key:Key]')
+  .option('--custom', 'Show only the custom (changed) settings')
   .description('Get the value of a certain config setting')
-  .action(async (options, key) => {
+  .action(async ({ custom }, key) => {
     const obj: any = key ? await findConfig(key) : null;
     const { customSettings, defaultSettings } = await getSettings();
+
+    if (custom) {
+      const modifiedKeys = [];
+      println(`
+  ${chalk.bold('Modified:')}
+`);
+      for (const key of values) {
+        if (getKey(customSettings, key)) modifiedKeys.push(key);
+      }
+
+      println(
+        modifiedKeys
+          .map((k) => {
+            const re = new RegExp(k);
+            for (const key of values) {
+              if (re.test(key) && k !== key) return null; // If it is only a fragment of another complete key
+            }
+            return k;
+          })
+          .filter((_) => _)
+          .map((key) => `  ${chalk.red('-')} ${chalk.blue(key)}`)
+          .join('\n')
+      );
+
+      println('');
+      return;
+    }
+
     const value: any = key ? getKey(customSettings, key) : null;
     const defaultValue: any = key ? getKey(defaultSettings, key) : null;
     if (['string', 'number', 'boolean'].includes(typeof defaultValue)) {

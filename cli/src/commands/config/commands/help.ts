@@ -44,7 +44,7 @@ export const helpWith = async (key: string | undefined) => {
     `
   );
   if (children) {
-    println(chalk.bold('Children:\n'));
+    println(chalk.bold('  Children:\n'));
     for (const [keyname, value] of Object.entries(children)) {
       println(
         `    ${chalk.blue(keyname.padEnd(maxChildNameLength))}  ${chalk.magenta(
