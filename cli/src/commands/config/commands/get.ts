@@ -35,7 +35,8 @@ get
 
   ${chalk.bold('Comment:')}
 
-    For additional help, run ${chalk.bold(`\`config help ${key}\``)}
+    For additional help, run ${chalk.bold(`\`zap config help ${key}\``)}
+    To change this value, run ${chalk.bold(`\`zap config set ${key} ${chalk.magenta('[NEW_VALUE]')}\``)}
   `
       );
     } else {
