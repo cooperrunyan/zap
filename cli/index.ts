@@ -1,7 +1,8 @@
 import { cliffy } from './deps.ts';
 
-import { open, openDirectory } from './src/commands/open/index.ts';
 import { config } from './src/commands/config/index.ts';
+import { open } from './src/commands/open/index.ts';
+import { openApp } from './src/lib/openApp.ts';
 
 const zap = new cliffy.Command();
 
@@ -27,7 +28,7 @@ zap.command(
 
 zap.command(
   '.',
-  new cliffy.Command().hidden().action(() => openDirectory('.'))
+  new cliffy.Command().hidden().action(() => openApp(['--dir', '.']))
 );
 
 zap.parse(Deno.args);
