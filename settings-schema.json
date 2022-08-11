@@ -242,7 +242,7 @@
           "type": "string",
           "default": "#ccd5e5",
           "description": "Default text color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "backgroundColor": {
@@ -250,7 +250,7 @@
           "type": "string",
           "default": "#000",
           "description": "Default background color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "selectionColor": {
@@ -258,7 +258,7 @@
           "type": "string",
           "default": "#1e2025",
           "description": "Default selection color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -267,7 +267,7 @@
           "type": "string",
           "default": "#000",
           "description": "black color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightBlack": {
@@ -275,7 +275,7 @@
           "type": "string",
           "default": "#49525f",
           "description": "lightBlack color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -284,7 +284,7 @@
           "type": "string",
           "default": "#ff5562",
           "description": "red color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightRed": {
@@ -292,7 +292,7 @@
           "type": "string",
           "default": "#ff5562",
           "description": "lightRed color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -301,7 +301,7 @@
           "type": "string",
           "default": "#8dcf5e",
           "description": "green color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightGreen": {
@@ -309,7 +309,7 @@
           "type": "string",
           "default": "#8dcf5e",
           "description": "lightGreen color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -318,7 +318,7 @@
           "type": "string",
           "default": "#4da5ff",
           "description": "blue color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightBlue": {
@@ -326,7 +326,7 @@
           "type": "string",
           "default": "#4da5ff",
           "description": "lightBlue color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -335,7 +335,7 @@
           "type": "string",
           "default": "#d09953",
           "description": "yellow color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightYellow": {
@@ -343,7 +343,7 @@
           "type": "string",
           "default": "#d09953",
           "description": "lightYellow color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -352,7 +352,7 @@
           "type": "string",
           "default": "#cf62ff",
           "description": "magenta color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightMagenta": {
@@ -360,7 +360,7 @@
           "type": "string",
           "default": "#cf62ff",
           "description": "lightMagenta color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -369,7 +369,7 @@
           "type": "string",
           "default": "#46c3d9",
           "description": "cyan color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightCyan": {
@@ -377,7 +377,7 @@
           "type": "string",
           "default": "#46c3d9",
           "description": "lightCyan color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
 
@@ -386,7 +386,7 @@
           "type": "string",
           "default": "#abb2bf",
           "description": "white color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "lightWhite": {
@@ -394,7 +394,7 @@
           "type": "string",
           "default": "#abb2bf",
           "description": "lightWhite color (CSS)",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         }
       }
@@ -409,7 +409,7 @@
           "type": "string",
           "default": "#fff",
           "description": "Color of the cursor",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "accentColor": {
@@ -417,7 +417,7 @@
           "type": "string",
           "default": "#000",
           "description": "Accent colors of the cursor",
-          "examples": ["#fff", "#ccd5e5", "rgb(255,255,255)"],
+          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
         "width": {

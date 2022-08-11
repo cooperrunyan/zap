@@ -59,7 +59,8 @@
       "buildResources": "resources"
     },
     "extraResources": [
-      "cli/zap"
+      "cli/zap",
+      "settings-schema.json"
     ]
   }
 }
