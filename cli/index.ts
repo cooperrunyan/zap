@@ -2,7 +2,6 @@ import { cliffy } from './deps.ts';
 
 import { open, openDirectory } from './src/commands/open/index.ts';
 import { config } from './src/commands/config/index.ts';
-import { vm } from './src/commands/vm/index.ts';
 
 const zap = new cliffy.Command();
 
@@ -14,7 +13,6 @@ zap
 
 zap.command('open', open);
 zap.command('config', config);
-zap.command('vm', vm);
 
 zap.command(
   'help',

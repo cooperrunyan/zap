@@ -1,4 +1,5 @@
 import { cliffy } from '../../../../deps.ts';
+import { println } from '../../../lib/println.ts';
 
 export const set = new cliffy.Command();
 
@@ -6,6 +7,6 @@ set
   .name('set')
   .description('Set the value of a certain config setting')
   .arguments('<key:string> <value:string>')
-  .action((options, key, value) => {
-    console.log(key, value);
+  .action(async (options, key, value) => {
+    await println(key, value);
   });
