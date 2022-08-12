@@ -11,20 +11,22 @@ import { win as winOptions } from './win';
 async function createWindow() {
   const win = new BrowserWindow(winOptions);
 
-  const argv = await yargs.option('dir', {
-    type: 'string'
-  }).argv;
+  const { dir, settings: openSettings } = await yargs
+    .option('dir', { type: 'string' })
+    .option('settings', { type: 'boolean' }).argv;
 
   // and load the index.html of the app.
-  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
+  if (isDev)
+    win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}&settings=${String(!!openSettings)}`);
   else
     win.loadFile(join(__dirname, `../src/out/index.html`), {
       query: {
-        id: String(win.id)
+        id: String(win.id),
+        settings: String(!!openSettings)
       }
     });
 
-  const teardown = terminal(win, argv.dir || null);
+  const teardown = terminal(win, dir || null);
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();

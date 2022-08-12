@@ -1,5 +1,6 @@
-import { ipcRenderer, contextBridge } from 'electron';
-import { defaultSettings, SettingsManager } from './settings';
+import { contextBridge, ipcRenderer } from 'electron';
+import { defaultSettings } from './defaultSettings';
+import { SettingsManager } from './settings';
 
 declare global {
   interface Window {

@@ -15,6 +15,7 @@ $bh: 44px;
     height: calc(100vh - #{$bh});
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &.native {
       height: 100vh;

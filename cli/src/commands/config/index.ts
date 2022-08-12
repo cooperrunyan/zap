@@ -2,7 +2,6 @@ import { cliffy } from '../../../deps.ts';
 
 import { cat } from './commands/cat.ts';
 import { get } from './commands/get.ts';
-import { gui } from './commands/gui.ts';
 import { help } from './commands/help.ts';
 import { location } from './commands/location.ts';
 import { reset } from './commands/reset.ts';
@@ -19,6 +18,5 @@ config.command('get', get);
 config.command('set', set);
 config.command('reset', reset);
 config.command('help', help);
-config.command('gui', gui);
 config.command('location', location);
 config.command('cat', cat);
