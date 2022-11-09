@@ -35,7 +35,13 @@ window.addEventListener('beforeunload', () => {
 
 if (!settings.window.useNativeAppBar) {
   const app = document.querySelector('.App') as HTMLDivElement;
-  app.insertAdjacentHTML('afterbegin', '<div class="AppBar"></div>');
+  console.log(settings.font.family);
+  app.insertAdjacentHTML(
+    'afterbegin',
+    `<div class="AppBar" style="color: ${
+      settings.theme.foregroundColor
+    }; font-family: ${settings.font.family.replaceAll('"', "'")};">${settings.window.showTitle ? 'Zap' : ''}</div>`
+  );
 } else {
   const appContent = document.querySelector('.AppContent') as HTMLDivElement;
   appContent.classList.add('native');

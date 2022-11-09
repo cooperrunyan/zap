@@ -229,6 +229,12 @@
           "default": true,
           "type": "boolean",
           "description": "When starting the application, show the window or keep it hidden"
+        },
+        "showTitle": {
+          "title": "Show Title",
+          "default": true,
+          "type": "boolean",
+          "description": "Show the title at the top of the window"
         }
       }
     },

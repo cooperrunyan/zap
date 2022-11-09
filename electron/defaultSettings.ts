@@ -35,13 +35,14 @@ export const defaultSettings = (platform: string) => ({
     acceptFirstMouse: false,
     remainOnTop: false,
     paintWhenInitiallyHidden: true,
-    showInitially: true
+    showInitially: true,
+    showTitle: true
   },
 
   theme: {
     foregroundColor: '#ccd5e5',
     backgroundColor: '#000',
-    selectionColor: '#1e2025',
+    selectionColor: '#3B3E46',
 
     black: '#000',
     lightBlack: '#49525f',
@@ -53,8 +54,8 @@ export const defaultSettings = (platform: string) => ({
     lightBlue: '#4da5ff',
     yellow: '#d09953',
     lightYellow: '#d09953',
-    magenta: '#cf62ff',
-    lightMagenta: '#cf62ff',
+    magenta: '#d367ff',
+    lightMagenta: '#d367ff',
     cyan: '#46c3d9',
     lightCyan: '#46c3d9',
     white: '#abb2bf',
@@ -75,7 +76,7 @@ export const defaultSettings = (platform: string) => ({
   },
 
   font: {
-    family: 'Consolas, "Roboto Mono", Menlo, monospace',
+    family: '"Roboto Mono", Consolas, Menlo, monospace',
     size: 14,
     weight: 'normal', // valid css font-weight
     weightBold: 'bold', // valid css font-weight

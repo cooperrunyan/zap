@@ -21,6 +21,13 @@ $bh: 44px;
   &Bar {
     height: $bh;
     -webkit-app-region: drag;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    opacity: 0.75;
+    user-select: none;
+    pointer-events: none;
   }
 
   &Content {
@@ -31,6 +38,7 @@ $bh: 44px;
 
     &.native {
       height: 100vh;
+      padding-top: 6px;
     }
   }
 }
