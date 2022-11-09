@@ -13,8 +13,6 @@ export function terminal(win: BrowserWindow, dir: string | null, cliCommand: str
     env: Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any
   });
 
-  if (cliCommand) pty.write(cliCommand + '\n');
-
   ipcMain.on(`x-term-resize-${win.id}`, (_, cols, rows) => pty.resize(+cols, +rows));
 
   ipcMain.on(`x-stdin-${win.id}`, (_, stdin: string) => {
@@ -24,6 +22,8 @@ export function terminal(win: BrowserWindow, dir: string | null, cliCommand: str
   pty.onData((stdout) => {
     win.webContents.send(`x-stdout-${win.id}`, stdout);
   });
+
+  if (cliCommand) pty.write(cliCommand + '\n');
 
   return () => {
     pty.kill();

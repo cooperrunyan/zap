@@ -1,6 +1,5 @@
-import react from '@vitejs/plugin-react';
-import { UserConfig, ConfigEnv } from 'vite';
 import { join } from 'path';
+import { ConfigEnv, UserConfig } from 'vite';
 
 const srcRoot = join(__dirname, 'src');
 const assetRoot = join(__dirname, 'asset');
@@ -11,7 +10,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
     return {
       root: srcRoot,
       base: '/',
-      plugins: [react()],
+      plugins: [],
       resolve: {
         alias: {
           '/@': srcRoot,
@@ -35,7 +34,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
   return {
     root: srcRoot,
     base: './',
-    plugins: [react()],
+    plugins: [],
     resolve: {
       alias: {
         '/@': srcRoot,
