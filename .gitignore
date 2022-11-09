@@ -21,3 +21,4 @@ yarn-error.log*
 .env.production.local
 
 cli/zap
+cli/run

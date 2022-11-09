@@ -12,7 +12,9 @@ export async function openApp(args?: string[]) {
     Deno.exit(1);
   }
 
+  const cmd = [zapPath, ...(args || [])];
+
   Deno.run({
-    cmd: [zapPath, ...(args || [])]
+    cmd: ['./run', ...cmd]
   }).status();
 }
