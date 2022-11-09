@@ -12,12 +12,12 @@ set
   .name('set')
   .description('Set the value of a certain config setting')
   .type('Key', new KeyType())
-  .arguments('<key:Key> <value:string>')
+  .arguments('<key:Key> <...value:string>')
   .action(async (options, key, value) => {
     const { customSettings, defaultSettings } = await getSettings();
     const oldValue = getKey(customSettings, key);
     const defaultValue = getKey(defaultSettings, key);
-    const newSettings = changeValueAtKey(customSettings, key, value);
+    const newSettings = changeValueAtKey(customSettings, key, value.join(' '));
     const newValue = getKey(newSettings, key);
 
     if (newSettings === 'key not found')

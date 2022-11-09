@@ -10,7 +10,7 @@ import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
 async function createWindow() {
-  await checkCLI();
+  const cliCommand = await checkCLI();
 
   const win = new BrowserWindow(winOptions);
 
@@ -19,17 +19,9 @@ async function createWindow() {
     .option('settings', { type: 'boolean' }).argv;
 
   // and load the index.html of the app.
-  if (isDev)
-    win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}&settings=${String(!!openSettings)}`);
-  else
-    win.loadFile(join(__dirname, `../src/out/index.html`), {
-      query: {
-        id: String(win.id),
-        settings: String(!!openSettings)
-      }
-    });
+  load(win, !!openSettings);
 
-  const teardown = terminal(win, dir || null);
+  const teardown = terminal(win, dir || null, cliCommand);
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();
@@ -56,3 +48,15 @@ app.whenReady().then(async () => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
+const load = (win: BrowserWindow, openSettings: boolean) => {
+  if (isDev)
+    win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}&settings=${String(!!openSettings)}`);
+  else
+    win.loadFile(join(__dirname, `../src/out/index.html`), {
+      query: {
+        id: String(win.id),
+        settings: String(!!openSettings)
+      }
+    });
+};

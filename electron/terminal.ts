@@ -2,7 +2,7 @@ import { BrowserWindow, ipcMain } from 'electron';
 import { spawn } from 'node-pty';
 import { SettingsManager } from './settings';
 
-export function terminal(win: BrowserWindow, dir: string | null) {
+export function terminal(win: BrowserWindow, dir: string | null, cliCommand: string | null) {
   const shell = new SettingsManager().getSettings().shell;
 
   const pty = spawn(shell.name, shell.shellArgs, {
@@ -12,6 +12,8 @@ export function terminal(win: BrowserWindow, dir: string | null) {
     cwd: dir || process.env.HOME,
     env: Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any
   });
+
+  if (cliCommand) pty.write(cliCommand + '\n');
 
   ipcMain.on(`x-term-resize-${win.id}`, (_, cols, rows) => pty.resize(+cols, +rows));
 
