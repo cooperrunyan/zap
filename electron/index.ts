@@ -5,10 +5,13 @@ import { join } from 'path';
 import { app, BrowserWindow, Menu } from 'electron';
 import isDev from 'electron-is-dev';
 import yargs from 'yargs';
+import { checkCLI } from './checkCLI';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
 async function createWindow() {
+  await checkCLI();
+
   const win = new BrowserWindow(winOptions);
 
   const { dir, settings: openSettings } = await yargs
