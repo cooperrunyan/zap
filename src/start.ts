@@ -30,7 +30,7 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
   const appBar = document.querySelector('.AppBar') as HTMLDivElement;
   const appContent = document.querySelector('.AppContent') as HTMLDivElement;
 
-  appBar.style.color = settings.theme.foregroundColor;
+  appBar.style.color = settings.color.foreground;
   appBar.style.fontFamily = settings.font.family.replaceAll('"', "'");
   appBar.innerText = settings.window.showTitle ? 'Zap' : '';
 

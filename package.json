@@ -52,16 +52,101 @@
       "main",
       "src/out"
     ],
-    "dmg": {
-      "sign": false
-    },
     "mac": {
-      "target": "dmg",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false
+      "target": [
+        {
+          "target": "tar.gz"
+        },
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "darkModeSupport": true,
+      "category": "public.app-category.developer-tools"
     },
     "win": {
-      "icon": "./resources/assets/icon/icon.ico"
+      "icon": "./resources/assets/icon/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "category": "System",
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "tar.gz",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "apk",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "pacman",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
     },
     "directories": {
       "buildResources": "resources"

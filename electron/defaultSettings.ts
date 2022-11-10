@@ -38,10 +38,10 @@ export const defaultSettings = (platform: string) => ({
     showTitle: true
   },
 
-  theme: {
-    foregroundColor: '#ccd5e5',
-    backgroundColor: '#000',
-    selectionColor: '#3B3E46',
+  color: {
+    foreground: '#ccd5e5',
+    background: '#000',
+    selection: '#3B3E46',
 
     black: '#000',
     lightBlack: '#49525f',

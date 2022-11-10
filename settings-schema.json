@@ -232,12 +232,12 @@
         }
       }
     },
-    "theme": {
-      "title": "Theme",
+    "color": {
+      "title": "Color",
       "type": "object",
       "description": "Properties to customize coloration",
       "properties": {
-        "foregroundColor": {
+        "foreground": {
           "title": "Foreground Color",
           "type": "string",
           "default": "#ccd5e5",
@@ -245,7 +245,7 @@
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
-        "backgroundColor": {
+        "background": {
           "title": "Background Color",
           "type": "string",
           "default": "#000",
@@ -253,7 +253,7 @@
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
         },
-        "selectionColor": {
+        "selection": {
           "title": "Selection Color",
           "type": "string",
           "default": "#1e2025",
