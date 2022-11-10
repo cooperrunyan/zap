@@ -224,12 +224,6 @@
           "default": true,
           "description": "When the window is launched, but not shown, this controls whether the renderer should start running or wait until the window is in view"
         },
-        "showInitially": {
-          "title": "Show Initially",
-          "default": true,
-          "type": "boolean",
-          "description": "When starting the application, show the window or keep it hidden"
-        },
         "showTitle": {
           "title": "Show Title",
           "default": true,

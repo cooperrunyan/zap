@@ -1,7 +1,6 @@
 #!/bin/bash
 
 declare -a cmds=(
-  "yarn build:cli"
   "yarn build:vite"
   "yarn build:electron"
 )

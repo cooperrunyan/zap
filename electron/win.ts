@@ -4,6 +4,7 @@ import { SettingsManager } from './settings';
 const settings = new SettingsManager().getSettings();
 
 export const win: Electron.BrowserWindowConstructorOptions = {
+  show: false,
   title: 'Zap',
   tabbingIdentifier: 'Zap',
   icon: `../assets/icon${settings.dark ? '/dark/' : '/'}icon.${settings.os === 'win32' ? 'ico' : 'icns'}`,
@@ -27,7 +28,6 @@ export const win: Electron.BrowserWindowConstructorOptions = {
   minWidth: settings.window.dimensions.minWidth,
   opacity: settings.window.style.opacity,
   paintWhenInitiallyHidden: settings.window.paintWhenInitiallyHidden,
-  show: settings.window.showInitially,
   vibrancy: settings.window.style.vibrancy || undefined,
   x: settings.window.position.initial.x || undefined,
   y: settings.window.position.initial.y || undefined,

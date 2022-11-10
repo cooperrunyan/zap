@@ -4,24 +4,17 @@ import { join } from 'path';
 // Packages
 import { app, BrowserWindow, Menu } from 'electron';
 import isDev from 'electron-is-dev';
-import yargs from 'yargs';
-import { checkCLI } from './checkCLI';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
 async function createWindow() {
-  const cliCommand = await checkCLI();
-
   const win = new BrowserWindow(winOptions);
-
-  const { dir, settings: openSettings } = await yargs
-    .option('dir', { type: 'string' })
-    .option('settings', { type: 'boolean' }).argv;
+  win.once('ready-to-show', () => win.show());
 
   // and load the index.html of the app.
-  load(win, !!openSettings);
+  load(win);
 
-  const teardown = terminal(win, dir || null, cliCommand);
+  const teardown = terminal(win);
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();
@@ -49,14 +42,12 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-const load = (win: BrowserWindow, openSettings: boolean) => {
-  if (isDev)
-    win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}&settings=${String(!!openSettings)}`);
+const load = (win: BrowserWindow) => {
+  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
   else
     win.loadFile(join(__dirname, `../src/out/index.html`), {
       query: {
-        id: String(win.id),
-        settings: String(!!openSettings)
+        id: String(win.id)
       }
     });
 };

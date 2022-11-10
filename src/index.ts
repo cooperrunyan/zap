@@ -35,7 +35,6 @@ window.addEventListener('beforeunload', () => {
 
 if (!settings.window.useNativeAppBar) {
   const app = document.querySelector('.App') as HTMLDivElement;
-  console.log(settings.font.family);
   app.insertAdjacentHTML(
     'afterbegin',
     `<div class="AppBar" style="color: ${

@@ -35,7 +35,6 @@ export const defaultSettings = (platform: string) => ({
     acceptFirstMouse: false,
     remainOnTop: false,
     paintWhenInitiallyHidden: true,
-    showInitially: true,
     showTitle: true
   },
 
