@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+}
+
 .xterm-selection {
   mix-blend-mode: exclusion !important;
 }
@@ -35,6 +39,7 @@ $bh: 44px;
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow-y: scroll;
 
     &.native {
       height: 100vh;

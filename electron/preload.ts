@@ -26,6 +26,7 @@ const api = {
   },
 
   settings: {
+    onChange: (f: () => any) => settings.onChange(f),
     get: () => settings.getSettings(),
     set: (val: ReturnType<typeof defaultSettings>) => settings.setSettings(val)
   }

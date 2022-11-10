@@ -1,6 +1,6 @@
 import * as fs from 'fs-extra';
-import * as yaml from 'yaml';
 import { platform } from 'os';
+import * as yaml from 'yaml';
 import { defaultSettings } from './defaultSettings';
 import { merge } from './merge';
 
@@ -11,6 +11,12 @@ export class SettingsManager {
 
   constructor() {
     this.getSettings();
+  }
+
+  onChange(f: () => any) {
+    fs.watchFile(this.settingsPath, {}, () => {
+      f();
+    });
   }
 
   getSettings(): Settings {

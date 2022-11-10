@@ -2,7 +2,7 @@
 import { join } from 'path';
 
 // Packages
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, globalShortcut, Menu } from 'electron';
 import isDev from 'electron-is-dev';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
@@ -18,6 +18,11 @@ async function createWindow() {
 
   // Open the DevTools.
   if (isDev) win.webContents.openDevTools();
+
+  globalShortcut.register('CommandOrControl+Option+Z', () => {
+    app.show();
+    win.show();
+  });
 
   win.on('close', teardown);
 }
