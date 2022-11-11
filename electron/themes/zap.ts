@@ -1,0 +1,21 @@
+export const zapTheme = {
+  foreground: '#CCCCCC',
+  background: '#000',
+  selection: '#3B3E46',
+  black: '#000',
+  lightBlack: '#000',
+  red: '#EB543B',
+  lightRed: '#EB543B',
+  green: '#58FF1D',
+  lightGreen: '#58FF1D',
+  blue: '#009DFF',
+  lightBlue: '#009DFF',
+  yellow: '#FFF500',
+  lightYellow: '#FFF500',
+  magenta: '#E339DD',
+  lightMagenta: '#E339DD',
+  cyan: '#00F0FF',
+  lightCyan: '#00F0FF',
+  white: '#CCCCCC',
+  lightWhite: '#fff'
+};

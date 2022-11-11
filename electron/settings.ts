@@ -1,8 +1,10 @@
 import * as fs from 'fs-extra';
-import { platform } from 'os';
 import * as yaml from 'yaml';
+
+import { platform } from 'os';
 import { defaultSettings } from './defaultSettings';
 import { merge } from './merge';
+import { theme } from './themes/getTheme';
 
 type Settings = ReturnType<typeof defaultSettings>;
 
@@ -23,7 +25,11 @@ export class SettingsManager {
     fs.ensureFileSync(this.settingsPath);
     const customSettings = yaml.parse(fs.readFileSync(this.settingsPath, 'utf-8')) || {};
 
-    return merge(customSettings, defaultSettings(platform()) as any) as Settings;
+    const merged = merge(customSettings, defaultSettings(platform()) as any) as Settings;
+
+    merged.compositeTheme = merge(merged.themeOverrides as any, theme(merged.theme) as any) as any;
+
+    return merged;
   }
 
   setSettings(val: Partial<Settings>) {

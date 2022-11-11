@@ -1,0 +1,21 @@
+export const ayuTheme = {
+  foreground: '#bfbdb6',
+  background: '#0E1017',
+  selection: '#253A5A',
+  black: '#0E1017',
+  lightBlack: '#0E1017',
+  red: '#ff8f40',
+  lightRed: '#ff8f40',
+  green: '#aad94c',
+  lightGreen: '#aad94c',
+  blue: '#6084B5',
+  lightBlue: '#6084B5',
+  yellow: '#ffb454',
+  lightYellow: '#ffb454',
+  magenta: '#d2a6ff',
+  lightMagenta: '#d2a6ff',
+  cyan: '#59c2ff',
+  lightCyan: '#59c2ff',
+  white: '#bfbdb6',
+  lightWhite: '#fff'
+};

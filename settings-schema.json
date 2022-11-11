@@ -232,8 +232,15 @@
         }
       }
     },
-    "color": {
-      "title": "Color",
+    "theme": {
+      "title": "Theme",
+      "type": "string",
+      "description": "The theme of the terminal",
+      "default": "default",
+      "enum": ["zap", "oneDark", "ayu", "stealth", "retro"]
+    },
+    "themeOverrides": {
+      "title": "Theme Overrides",
       "type": "object",
       "description": "Properties to customize coloration",
       "properties": {

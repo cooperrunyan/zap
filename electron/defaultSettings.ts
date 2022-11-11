@@ -1,3 +1,5 @@
+import { theme } from './themes/getTheme';
+
 export const defaultSettings = (platform: string) => ({
   window: {
     style: {
@@ -38,27 +40,29 @@ export const defaultSettings = (platform: string) => ({
     showTitle: true
   },
 
-  color: {
-    foreground: '#ccd5e5',
-    background: '#000',
-    selection: '#3B3E46',
+  theme: 'zap' as const,
+  compositeTheme: theme('zap'),
 
-    black: '#000',
-    lightBlack: '#49525f',
-    red: '#ff5562',
-    lightRed: '#ff5562',
-    green: '#8dcf5e',
-    lightGreen: '#8dcf5e',
-    blue: '#4da5ff',
-    lightBlue: '#4da5ff',
-    yellow: '#d09953',
-    lightYellow: '#d09953',
-    magenta: '#d367ff',
-    lightMagenta: '#d367ff',
-    cyan: '#46c3d9',
-    lightCyan: '#46c3d9',
-    white: '#abb2bf',
-    lightWhite: '#fff'
+  themeOverrides: {
+    foreground: undefined,
+    background: undefined,
+    selection: undefined,
+    black: undefined,
+    lightBlack: undefined,
+    red: undefined,
+    lightRed: undefined,
+    green: undefined,
+    lightGreen: undefined,
+    blue: undefined,
+    lightBlue: undefined,
+    yellow: undefined,
+    lightYellow: undefined,
+    magenta: undefined,
+    lightMagenta: undefined,
+    cyan: undefined,
+    lightCyan: undefined,
+    white: undefined,
+    lightWhite: undefined
   },
 
   cursor: {
@@ -77,12 +81,11 @@ export const defaultSettings = (platform: string) => ({
   font: {
     family: '"Roboto Mono", Consolas, Menlo, monospace',
     size: 14,
-    weight: 'normal', // valid css font-weight
-    weightBold: 'bold', // valid css font-weight
+    weight: '400', // valid css font-weight
+    weightBold: '600', // valid css font-weight
     lineHeight: 1.2,
     letterSpacing: -0.01 // px
   },
 
-  dark: true,
   os: platform
 });
