@@ -55,7 +55,11 @@
     "mac": {
       "target": [
         {
-          "target": "tar.gz"
+          "target": "tar.gz",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         },
         {
           "target": "dmg",
@@ -83,7 +87,7 @@
       "category": "public.app-category.developer-tools"
     },
     "win": {
-      "icon": "./resources/assets/icon/icon.ico",
+      "icon": "./resources/icon.ico",
       "target": [
         {
           "target": "nsis",

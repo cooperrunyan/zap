@@ -7,7 +7,7 @@ export const win: Electron.BrowserWindowConstructorOptions = {
   show: false,
   title: 'Zap',
   tabbingIdentifier: 'Zap',
-  icon: `../assets/icon/icon.${settings.os === 'win32' ? 'ico' : 'icns'}`,
+  icon: `../resources/icon.${settings.os === 'win32' ? 'ico' : 'icns'}`,
   backgroundColor: settings.compositeTheme.background,
   width: settings.window.dimensions.initialWidth,
   height: settings.window.dimensions.initialHeight,
