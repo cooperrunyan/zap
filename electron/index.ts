@@ -50,7 +50,7 @@ app.on('window-all-closed', () => {
 const load = (win: BrowserWindow) => {
   if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
   else
-    win.loadFile(join(__dirname, `../src/out/index.html`), {
+    win.loadFile(join(__dirname, `../client/out/index.html`), {
       query: {
         id: String(win.id)
       }

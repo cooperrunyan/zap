@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { ConfigEnv, UserConfig } from 'vite';
 
-const srcRoot = join(__dirname, 'src');
+const srcRoot = join(__dirname, 'client');
 const assetRoot = join(__dirname, 'resources');
 
 export default ({ command }: ConfigEnv): UserConfig => {
