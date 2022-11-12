@@ -5,9 +5,8 @@ dist-ssr
 *.local
 
 # production
-/main
+/compiled
 /dist
-/client/out
 
 # debug
 npm-debug.log*

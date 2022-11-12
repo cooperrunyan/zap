@@ -2,6 +2,7 @@ import { join } from 'path';
 import { ConfigEnv, UserConfig } from 'vite';
 
 const srcRoot = join(__dirname, 'client');
+const outDir = join(__dirname, 'compiled/client');
 const assetRoot = join(__dirname, 'resources');
 
 export default ({ command }: ConfigEnv): UserConfig => {
@@ -18,7 +19,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
         }
       },
       build: {
-        outDir: join(srcRoot, '/out'),
+        outDir,
         emptyOutDir: true,
         rollupOptions: {}
       },
@@ -42,7 +43,7 @@ export default ({ command }: ConfigEnv): UserConfig => {
       }
     },
     build: {
-      outDir: join(srcRoot, '/out'),
+      outDir,
       emptyOutDir: true,
       rollupOptions: {}
     },
