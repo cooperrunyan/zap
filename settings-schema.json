@@ -236,10 +236,10 @@
       "title": "Theme",
       "type": "string",
       "description": "The theme of the terminal",
-      "default": "default",
+      "default": "zap",
       "enum": ["zap", "oneDark", "ayu", "stealth", "retro"]
     },
-    "themeOverrides": {
+    "color": {
       "title": "Theme Overrides",
       "type": "object",
       "description": "Properties to customize coloration",

@@ -13,4 +13,4 @@ export function merge(x: Obj, master: Obj) {
   return x;
 }
 
-type Obj = { [key: string]: (string | boolean | number | any[]) | object };
+type Obj = { [key: string]: (string | boolean | number | any[]) | Obj };

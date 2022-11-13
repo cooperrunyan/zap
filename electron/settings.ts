@@ -6,7 +6,7 @@ import { defaultSettings } from './defaultSettings';
 import { merge } from './merge';
 import { theme } from './themes/getTheme';
 
-type Settings = ReturnType<typeof defaultSettings>;
+export type Settings = ReturnType<typeof defaultSettings>;
 
 export class SettingsManager {
   settingsPath = `${process.env.HOME}/.zaprc.yml`;
@@ -25,9 +25,9 @@ export class SettingsManager {
     fs.ensureFileSync(this.settingsPath);
     const customSettings = yaml.parse(fs.readFileSync(this.settingsPath, 'utf-8')) || {};
 
-    const merged = merge(customSettings, defaultSettings(platform()) as any) as Settings;
+    const merged = merge(customSettings, defaultSettings(platform()) as any) as any;
 
-    merged.compositeTheme = merge(merged.themeOverrides as any, theme(merged.theme) as any) as any;
+    merged.colors = merge(merged.colors || {}, theme(merged.theme) as any) as any;
 
     return merged;
   }
@@ -36,3 +36,5 @@ export class SettingsManager {
     fs.writeFileSync(this.settingsPath, yaml.stringify(val));
   }
 }
+
+export const initialSettings = new SettingsManager().getSettings();

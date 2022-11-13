@@ -1,9 +1,9 @@
 import { BrowserWindow, ipcMain } from 'electron';
 import { spawn } from 'node-pty';
-import { SettingsManager } from './settings';
+import { initialSettings, SettingsManager } from './settings';
 
 export function terminal(win: BrowserWindow) {
-  const shell = new SettingsManager().getSettings().shell;
+  const shell = initialSettings.shell;
 
   const pty = spawn(shell.name, shell.shellArgs, {
     name: 'xterm-256color',

@@ -1,5 +1,3 @@
-import { theme } from './themes/getTheme';
-
 export const defaultSettings = (platform: string) => ({
   window: {
     style: {
@@ -40,29 +38,28 @@ export const defaultSettings = (platform: string) => ({
     showTitle: true
   },
 
-  theme: 'zap' as const,
-  compositeTheme: theme('zap'),
+  theme: 'zap',
 
-  themeOverrides: {
-    foreground: undefined,
-    background: undefined,
-    selection: undefined,
-    black: undefined,
-    lightBlack: undefined,
-    red: undefined,
-    lightRed: undefined,
-    green: undefined,
-    lightGreen: undefined,
-    blue: undefined,
-    lightBlue: undefined,
-    yellow: undefined,
-    lightYellow: undefined,
-    magenta: undefined,
-    lightMagenta: undefined,
-    cyan: undefined,
-    lightCyan: undefined,
-    white: undefined,
-    lightWhite: undefined
+  color: {
+    foreground: '#CCCCCC',
+    background: '#000',
+    selection: '#3B3E46',
+    black: '#000',
+    lightBlack: '#000',
+    red: '#EB543B',
+    lightRed: '#EB543B',
+    green: '#58FF1D',
+    lightGreen: '#58FF1D',
+    blue: '#009DFF',
+    lightBlue: '#009DFF',
+    yellow: '#FFF500',
+    lightYellow: '#FFF500',
+    magenta: '#E339DD',
+    lightMagenta: '#E339DD',
+    cyan: '#00F0FF',
+    lightCyan: '#00F0FF',
+    white: '#CCCCCC',
+    lightWhite: '#fff'
   },
 
   cursor: {

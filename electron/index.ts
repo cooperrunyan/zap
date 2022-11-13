@@ -3,7 +3,6 @@ import { join } from 'path';
 
 // Packages
 import { app, BrowserWindow, globalShortcut, Menu } from 'electron';
-import isDev from 'electron-is-dev';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
@@ -17,7 +16,7 @@ async function createWindow() {
   const teardown = terminal(win);
 
   // Open the DevTools.
-  if (isDev) win.webContents.openDevTools();
+  if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
 
   globalShortcut.register('CommandOrControl+Option+Z', () => {
     app.show();
@@ -48,7 +47,7 @@ app.on('window-all-closed', () => {
 });
 
 const load = (win: BrowserWindow) => {
-  if (isDev) win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
+  if (process.env.NODE_ENV === 'development') win.loadURL(`http://localhost:${process.env.PORT || 3000}?id=${win.id}`);
   else
     win.loadFile(join(__dirname, `../client/out/index.html`), {
       query: {

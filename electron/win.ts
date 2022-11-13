@@ -1,14 +1,12 @@
 import { join } from 'path';
-import { SettingsManager } from './settings';
-
-const settings = new SettingsManager().getSettings();
+import { initialSettings as settings } from './settings';
 
 export const win: Electron.BrowserWindowConstructorOptions = {
   show: false,
   title: 'Zap',
   tabbingIdentifier: 'Zap',
   icon: `../resources/icon.${settings.os === 'win32' ? 'ico' : 'icns'}`,
-  backgroundColor: settings.compositeTheme.background,
+  backgroundColor: settings.color.background,
   width: settings.window.dimensions.initialWidth,
   height: settings.window.dimensions.initialHeight,
   frame: settings.window.useNativeAppBar,

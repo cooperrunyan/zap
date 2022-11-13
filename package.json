@@ -7,13 +7,12 @@
   "author": "Cooper Runyan",
   "description": "Terminal app",
   "scripts": {
-    "dev": "concurrently \"yarn vite\" \"yarn tsc && yarn electron .\"",
-    "build": "tsc && vite build && electron-builder",
+    "dev": "concurrently \"yarn vite\" \"yarn tsc -p electron && NODE_ENV=development yarn electron .\"",
+    "build": "tsc -p electron && vite build && electron-builder",
     "clean": "rimraf dist compiled",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
-    "electron-is-dev": "^2.0.0",
     "fs-extra": "^10.1.0",
     "node-pty": "^0.10.1",
     "sass": "^1.52.1",
