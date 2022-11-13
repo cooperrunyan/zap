@@ -4,6 +4,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+
+  @media (min-resolution: 2dppx) {
+    text-rendering: geometricPrecision;
+  }
 }
 
 html {

@@ -5,7 +5,8 @@
     "noEmit": false,
     "rootDir": ".",
     "outDir": "../compiled/electron",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "esModuleInterop": true
   },
 
   "include": ["**/*.ts"]

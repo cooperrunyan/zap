@@ -2,6 +2,8 @@ import { contextBridge, ipcRenderer } from 'electron';
 import { defaultSettings } from './defaultSettings';
 import { SettingsManager } from './settings';
 
+import open from 'open';
+
 declare global {
   interface Window {
     electron: {
@@ -29,6 +31,8 @@ const api = {
     onChange: (f: () => any) => settings.onChange(f),
     get: () => settings.getSettings(),
     set: (val: ReturnType<typeof defaultSettings>) => settings.setSettings(val)
-  }
+  },
+
+  openUrl: (url: string) => open(url)
 };
 contextBridge.exposeInMainWorld('electron', { api });
