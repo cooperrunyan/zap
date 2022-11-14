@@ -22,8 +22,6 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
 
   terminal.onData((str) => {
     if (str === ENTER) currentLineLength = 0;
-    else if (str === DEL) currentLineLength--;
-    else currentLineLength++;
 
     window.electron.api.emit(`x-stdin-${id}`, str);
   });
@@ -43,6 +41,7 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
   parent.style.padding = settings.window.style.padding;
 
   window.electron.api.on(`x-stdout-${id}`, (stdout: string) => {
+    currentLineLength += stdout.length;
     terminal.write(stdout);
   });
   window.addEventListener('resize', resize);
