@@ -5,10 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;
-
-  @media (min-resolution: 2dppx) {
-    text-rendering: geometricPrecision;
-  }
 }
 
 html {
@@ -17,6 +13,17 @@ html {
 
 .xterm-selection {
   mix-blend-mode: exclusion !important;
+}
+
+.xterm-viewport {
+  background: transparent !important;
+
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: none;
+  }
 }
 
 $bh: 44px;

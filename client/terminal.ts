@@ -35,5 +35,7 @@ export const createTerminal = (settings: ReturnType<typeof window.electron.api.s
       selection: settings.color.selection,
       white: settings.color.white,
       yellow: settings.color.yellow
-    }
+    },
+    altClickMovesCursor: true,
+    fastScrollModifier: 'alt'
   });

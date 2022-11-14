@@ -20,7 +20,7 @@ async function createWindow() {
   // Open the DevTools.
   if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
 
-  globalShortcut.register('CommandOrControl+Option+Z', () => {
+  globalShortcut.register('Command+Control+Z', () => {
     app.show();
     win.show();
   });
