@@ -38,8 +38,7 @@
     "asar": true,
     "icon": "./resources/icon.icns",
     "files": [
-      "compiled/client",
-      "compiled/electron"
+      "compiled"
     ],
     "mac": {
       "target": [

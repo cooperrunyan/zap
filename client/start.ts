@@ -29,6 +29,8 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
   });
   terminal.open(document.getElementById('terminal')!);
 
+  terminal.focus();
+
   terminal.loadAddon(fitAddon);
   terminal.loadAddon(webLinksAddon);
 
