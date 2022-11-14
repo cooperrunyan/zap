@@ -38,6 +38,7 @@ export const defaultSettings = (platform: string) => ({
     showTitle: true
   },
 
+  retro: false,
   theme: 'zap',
 
   color: {

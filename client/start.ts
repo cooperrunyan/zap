@@ -2,7 +2,6 @@ import { createTerminal } from './terminal';
 
 import { FitAddon } from 'xterm-addon-fit';
 import { WebLinksAddon } from 'xterm-addon-web-links';
-import { WebglAddon } from 'xterm-addon-webgl';
 import { linkHandler } from './linkHandler';
 
 const DEL = '\x7F';
@@ -14,7 +13,6 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
   let currentLineLength = 0;
 
   const fitAddon = new FitAddon();
-  const webGlAddon = new WebglAddon(true);
   const webLinksAddon = new WebLinksAddon(linkHandler);
 
   const terminal = createTerminal(settings);
@@ -32,7 +30,6 @@ export const start = (settings: ReturnType<typeof window.electron.api.settings.g
   terminal.open(document.getElementById('terminal')!);
 
   terminal.loadAddon(fitAddon);
-  // terminal.loadAddon(webGlAddon);
   terminal.loadAddon(webLinksAddon);
 
   const resize = () => {
