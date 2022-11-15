@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import { defaultSettings } from './defaultSettings';
-import { SettingsManager } from './settings';
+import { Settings, SettingsManager } from './settings';
 
 import open from 'open';
 
@@ -28,7 +28,7 @@ const api = {
   },
 
   settings: {
-    onChange: (f: () => any) => settings.onChange(f),
+    onChange: (f: (settings: Settings) => any) => settings.onChange(f),
     get: () => settings.getSettings(),
     set: (val: ReturnType<typeof defaultSettings>) => settings.setSettings(val)
   },

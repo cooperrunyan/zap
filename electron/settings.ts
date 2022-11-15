@@ -15,9 +15,11 @@ export class SettingsManager {
     this.getSettings();
   }
 
-  onChange(f: () => any) {
+  onChange(f: (settings: Settings) => any) {
+    f(this.getSettings());
     fs.watchFile(this.settingsPath, {}, () => {
-      f();
+      console.log(this.getSettings());
+      f(this.getSettings());
     });
   }
 
@@ -25,9 +27,12 @@ export class SettingsManager {
     fs.ensureFileSync(this.settingsPath);
     const customSettings = yaml.parse(fs.readFileSync(this.settingsPath, 'utf-8')) || {};
 
-    const merged = merge(customSettings, defaultSettings(platform()) as any) as any;
+    const defaultSettingsObj = defaultSettings(platform()) as any;
 
-    merged.colors = merge(merged.colors || {}, theme(merged.theme) as any) as any;
+    const color = merge(customSettings.color || {}, theme(customSettings.theme || defaultSettingsObj.theme));
+    const merged = merge(customSettings, defaultSettingsObj) as any;
+
+    merged.color = color;
 
     return merged;
   }

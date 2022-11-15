@@ -1,7 +1,7 @@
-import { Terminal } from 'xterm';
+import { Settings } from '../electron/settings';
 
-export const createTerminal = (settings: ReturnType<typeof window.electron.api.settings.get>) =>
-  new Terminal({
+export const transformSettings = (settings: Settings) =>
+  ({
     rendererType: 'canvas',
     cursorBlink: settings.cursor.blink,
     cursorStyle: settings.cursor.style as any,
@@ -38,4 +38,4 @@ export const createTerminal = (settings: ReturnType<typeof window.electron.api.s
     },
     altClickMovesCursor: true,
     fastScrollModifier: 'alt'
-  });
+  } as const);
