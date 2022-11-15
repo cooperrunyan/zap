@@ -3,7 +3,7 @@ export const ayuTheme = {
   background: '#0E1017',
   selection: '#253A5A',
   black: '#0E1017',
-  lightBlack: '#0E1017',
+  lightBlack: '#485070',
   red: '#ff8f40',
   lightRed: '#ff8f40',
   green: '#aad94c',

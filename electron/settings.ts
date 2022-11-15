@@ -18,7 +18,6 @@ export class SettingsManager {
   onChange(f: (settings: Settings) => any) {
     f(this.getSettings());
     fs.watchFile(this.settingsPath, {}, () => {
-      console.log(this.getSettings());
       f(this.getSettings());
     });
   }
@@ -29,7 +28,10 @@ export class SettingsManager {
 
     const defaultSettingsObj = defaultSettings(platform()) as any;
 
-    const color = merge(customSettings.color || {}, theme(customSettings.theme || defaultSettingsObj.theme));
+    const color = merge(
+      customSettings.color || {},
+      theme(customSettings.theme || defaultSettingsObj.theme) || defaultSettingsObj.color
+    );
     const merged = merge(customSettings, defaultSettingsObj) as any;
 
     merged.color = color;

@@ -8,8 +8,8 @@
   "description": "Terminal app",
   "scripts": {
     "dev": "concurrently \"yarn vite\" \"yarn tsc -p electron && NODE_ENV=development yarn electron .\"",
-    "build": "tsc -p electron && vite build && electron-builder",
-    "build:cli": "cd cli && deno compile -A --unstable --output ../compiled/cli/zap index.ts && cd detached-runner && go build -o ../../compiled/cli/run && cd ../..",
+    "build": "yarn build:cli && tsc -p electron && vite build && electron-builder",
+    "build:cli": "cd cli && deno compile -A --unstable --output ../compiled/cli/zap index.ts && cd detached-runner && go build -o ../../compiled/cli/zap-runner && cd ../..",
     "clean": "rimraf dist compiled",
     "postinstall": "electron-builder install-app-deps"
   },
@@ -22,8 +22,8 @@
     "xterm": "^4.18.0",
     "xterm-addon-fit": "^0.5.0",
     "xterm-addon-web-links": "^0.7.0",
-    "xterm-addon-webgl": "^0.13.0",
-    "yaml": "^2.1.0"
+    "yaml": "^2.1.0",
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.22",

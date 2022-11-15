@@ -2,6 +2,9 @@ import { exists } from '../../deps.ts';
 
 export async function getAppPath() {
   const isDev = Deno.env.get('ENV') === 'dev';
+  const path = Deno.env.get('ZAP_APP_PATH');
+
+  if (path) return path;
 
   if (isDev) return '../dist/mac-arm64/Zap.app/Contents/MacOS/Zap';
 

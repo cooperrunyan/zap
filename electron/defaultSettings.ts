@@ -44,8 +44,8 @@ export const defaultSettings = (platform: string) => ({
     foreground: '#CCCCCC',
     background: '#000000',
     selection: '#3B3E46',
-    black: '#000',
-    lightBlack: '#000',
+    black: '#000000',
+    lightBlack: '#000000',
     red: '#EB543B',
     lightRed: '#EB543B',
     green: '#58FF1D',
@@ -59,12 +59,12 @@ export const defaultSettings = (platform: string) => ({
     cyan: '#00F0FF',
     lightCyan: '#00F0FF',
     white: '#CCCCCC',
-    lightWhite: '#fff'
+    lightWhite: '#ffffff'
   },
 
   cursor: {
-    color: '#fff',
-    accentColor: '#000',
+    color: '#ffffff',
+    accentColor: '#000000',
     width: 1, // px (only when style is bar)
     style: 'bar', // bar, block, underline
     blink: true

@@ -9,7 +9,7 @@ const zap = new cliffy.Command();
 zap
   .name('zap')
   .usage('<subcommand> [args]')
-  .version('0.0.0')
+  .version('1.0.0')
   .action(() => zap.showHelp());
 
 zap.command('open', open);

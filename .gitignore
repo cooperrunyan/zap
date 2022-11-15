@@ -21,4 +21,4 @@ yarn-error.log*
 .env
 
 cli/zap
-cli/run
+cli/zap-runner

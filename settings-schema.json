@@ -237,12 +237,12 @@
       "type": "string",
       "description": "The theme of the terminal",
       "default": "zap",
-      "enum": ["zap", "oneDark", "ayu", "stealth", "retro"]
+      "enum": ["\"zap\"", "\"ayu\""]
     },
     "color": {
       "title": "Theme Overrides",
       "type": "object",
-      "description": "Properties to customize coloration",
+      "description": "Properties to customize theme pallette",
       "properties": {
         "foreground": {
           "title": "Foreground Color",

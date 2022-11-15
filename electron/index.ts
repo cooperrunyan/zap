@@ -1,19 +1,21 @@
-// Native
 import { join } from 'path';
 
-// Packages
 import { app, BrowserWindow, globalShortcut, Menu } from 'electron';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
+
+import yargs from 'yargs';
 
 async function createWindow() {
   const win = new BrowserWindow(winOptions);
   win.once('ready-to-show', () => win.show());
 
+  const { dir } = await yargs.option('dir', { type: 'string' }).argv;
+
   // and load the index.html of the app.
   load(win);
 
-  const teardown = terminal(win);
+  const teardown = terminal(win, dir);
 
   // Open the DevTools.
   if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();

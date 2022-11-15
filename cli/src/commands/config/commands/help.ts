@@ -13,7 +13,7 @@ help
   .arguments('[key:Key]')
   .example('help', 'Displays all categories')
   .example('help theme', 'Displays the properties of the "theme" key')
-  .example('help theme.backgroundColor', 'Displays the properties of the "theme.backgroundColor" key')
+  .example('help color.background', 'Displays the properties of the "color.background" key')
   .action(async (options, key) => {
     helpWith(key);
   });
@@ -21,7 +21,7 @@ help
 export const helpWith = async (key: string | undefined) => {
   const obj: any = key ? await findConfig(key) : schema;
 
-  const { description, type, properties: children } = obj as any;
+  const { description, type, properties: children, enum: enumValue } = obj as any;
 
   const maxChildNameLength = children ? Math.max(...Object.keys(children).map((k) => k.length)) : 0;
   const maxChildTypeLength = children ? Math.max(...Object.values(children).map((v: any) => v?.type?.length), 4) : 0;
@@ -31,7 +31,7 @@ export const helpWith = async (key: string | undefined) => {
   println(
     `
   ${chalk.bold('Key:  '.padEnd(minKeyLength))} ${chalk.cyan(key || 'base')}
-  ${chalk.bold('Type: '.padEnd(minKeyLength))} ${chalk.magenta(type)} ${
+  ${chalk.bold('Type: '.padEnd(minKeyLength))} ${chalk.magenta(enumValue ? enumValue.join(' | ') : type)} ${
       obj.default
         ? `
   ${chalk.bold('Default: '.padEnd(minKeyLength))} ${chalk.yellow(obj.default)}`

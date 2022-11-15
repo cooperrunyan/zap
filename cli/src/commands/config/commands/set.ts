@@ -36,8 +36,8 @@ set
     println(`
   ${chalk.bold('Success:')}
 
-    ${chalk.red('-')} ${chalk.blue('Current:')} ${chalk.magenta(newValue)}
-    ${chalk.red('-')} ${chalk.blue('Old:    ')} ${chalk.grey(oldValue)}
-    ${chalk.red('-')} ${chalk.blue('Default:')} ${chalk.grey(defaultValue)}
+    ${chalk.red('-')} ${chalk.blue('Current:')} ${chalk.magenta(String(newValue))}
+    ${chalk.red('-')} ${chalk.blue('Old:    ')} ${chalk.grey(String(oldValue))}
+    ${chalk.red('-')} ${chalk.blue('Default:')} ${chalk.grey(String(defaultValue))}
 `);
   });
