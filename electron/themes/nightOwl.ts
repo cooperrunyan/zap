@@ -1,0 +1,21 @@
+export const nightOwl = {
+  foreground: '#d6deeb',
+  background: '#011627',
+  selection: '#243A51',
+  black: '#011627',
+  lightBlack: '#05121E',
+  red: '#d3423e',
+  lightRed: '#d3423e',
+  green: '#c5e478',
+  lightGreen: '#c5e478',
+  blue: '#82aaff',
+  lightBlue: '#82aaff',
+  yellow: '#f78c6c',
+  lightYellow: '#f78c6c',
+  magenta: '#c792ea',
+  lightMagenta: '#c792ea',
+  cyan: '#7fdbca',
+  lightCyan: '#7fdbca',
+  white: '#d6deeb',
+  lightWhite: '#fff'
+};

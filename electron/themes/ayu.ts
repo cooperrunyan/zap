@@ -1,4 +1,4 @@
-export const ayuTheme = {
+export const ayu = {
   foreground: '#bfbdb6',
   background: '#0E1017',
   selection: '#253A5A',

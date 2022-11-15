@@ -1,0 +1,21 @@
+export const tokyoNight = {
+  foreground: '#c0caf5',
+  background: '#1A1B25',
+  selection: '#282B3B',
+  black: '#1A1B25',
+  lightBlack: '#454B68',
+  red: '#ff9e64',
+  lightRed: '#ff9e64',
+  green: '#9ece6a',
+  lightGreen: '#9ece6a',
+  blue: '#7dcfff',
+  lightBlue: '#7dcfff',
+  yellow: '#e0af68',
+  lightYellow: '#e0af68',
+  magenta: '#bb9af7',
+  lightMagenta: '#bb9af7',
+  cyan: '#73daca',
+  lightCyan: '#73daca',
+  white: '#c0caf5',
+  lightWhite: '#fff'
+};

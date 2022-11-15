@@ -4,7 +4,7 @@ import * as yaml from 'yaml';
 import { platform } from 'os';
 import { defaultSettings } from './defaultSettings';
 import { merge } from './merge';
-import { theme } from './themes/getTheme';
+import { theme } from './getTheme';
 
 export type Settings = ReturnType<typeof defaultSettings>;
 

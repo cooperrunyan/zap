@@ -1,0 +1,21 @@
+export const nord = {
+  foreground: '#D9DEE8',
+  background: '#2F343F',
+  selection: '#404757',
+  black: '#2F343F',
+  lightBlack: '#A0A5B0',
+  red: '#81a1c1',
+  lightRed: '#81a1c1',
+  green: '#A8BD91',
+  lightGreen: '#A8BD91',
+  blue: '#87A0BE',
+  lightBlue: '#87A0BE',
+  yellow: '#87A0BE',
+  lightYellow: '#87A0BE',
+  magenta: '#b48ead',
+  lightMagenta: '#b48ead',
+  cyan: '#94BECE',
+  lightCyan: '#94BECE',
+  white: '#D9DEE8',
+  lightWhite: '#fff'
+};

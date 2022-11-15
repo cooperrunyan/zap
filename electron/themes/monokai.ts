@@ -1,0 +1,21 @@
+export const monokai = {
+  foreground: '#fcfcfa',
+  background: '#211F22',
+  selection: '#424144',
+  black: '#211F22',
+  lightBlack: '#2C2A2E',
+  red: '#ff6188',
+  lightRed: '#ff6188',
+  green: '#a9dc76',
+  lightGreen: '#a9dc76',
+  blue: '#78dce8',
+  lightBlue: '#78dce8',
+  yellow: '#ffd866',
+  lightYellow: '#ffd866',
+  magenta: '#ab9df2',
+  lightMagenta: '#ab9df2',
+  cyan: '#78dce8',
+  lightCyan: '#78dce8',
+  white: '#fcfcfa',
+  lightWhite: '#fff'
+};

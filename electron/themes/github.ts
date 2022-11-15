@@ -1,0 +1,21 @@
+export const github = {
+  foreground: '#c9d1d9',
+  background: '#010409',
+  selection: '#304E75',
+  black: '#010409',
+  lightBlack: '#0d1117',
+  red: '#ff7b72',
+  lightRed: '#ff7b72',
+  green: '#7ee787',
+  lightGreen: '#7ee787',
+  blue: '#79c0ff',
+  lightBlue: '#79c0ff',
+  yellow: '#ffa657',
+  lightYellow: '#ffa657',
+  magenta: '#d2a8ff',
+  lightMagenta: '#d2a8ff',
+  cyan: '#a5d6ff',
+  lightCyan: '#a5d6ff',
+  white: '#c9d1d9',
+  lightWhite: '#fff'
+};

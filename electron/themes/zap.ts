@@ -1,4 +1,4 @@
-export const zapTheme = {
+export const zap = {
   foreground: '#CCCCCC',
   background: '#000',
   selection: '#3B3E46',

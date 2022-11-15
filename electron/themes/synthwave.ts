@@ -1,0 +1,21 @@
+export const synthwave = {
+  foreground: '#B5B1B1',
+  background: '#252334',
+  selection: '#413F4E',
+  black: '#252334',
+  lightBlack: '#848bbd',
+  red: '#fe4450',
+  lightRed: '#fe4450',
+  green: '#72f1b8',
+  lightGreen: '#72f1b8',
+  blue: '#36f9f6',
+  lightBlue: '#36f9f6',
+  yellow: '#F9DF72',
+  lightYellow: '#F9DF72',
+  magenta: '#EF85D7',
+  lightMagenta: '#EF85D7',
+  cyan: '#36f9f6',
+  lightCyan: '#36f9f6',
+  white: '#B5B1B1',
+  lightWhite: '#fff'
+};
