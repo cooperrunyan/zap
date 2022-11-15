@@ -3,7 +3,7 @@ export const oneDark = {
   background: '#292C33',
   selection: '#3E4554',
   black: '#292C33',
-  lightBlack: '#2D313B',
+  lightBlack: '#5C606B',
   red: '#D17276',
   lightRed: '#D17276',
   green: '#A1C281',

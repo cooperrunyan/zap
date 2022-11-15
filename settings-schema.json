@@ -237,18 +237,7 @@
       "type": "string",
       "description": "The theme of the terminal",
       "default": "zap",
-      "enum": [
-        "\"zap\"",
-        "\"ayu\"",
-        "\"andromeda\"",
-        "\"github\"",
-        "\"one-dark\"",
-        "\"monokai\"",
-        "\"nord\"",
-        "\"dracula\"",
-        "\"night-owl\"",
-        "\"synthwave\""
-      ]
+      "enum": ["\"zap\"", "\"ayu\"", "\"github\"", "\"one-dark\"", "\"nord\"", "\"night-owl\"", "\"synthwave\""]
     },
     "color": {
       "title": "Theme Overrides",

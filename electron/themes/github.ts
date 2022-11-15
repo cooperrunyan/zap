@@ -3,7 +3,7 @@ export const github = {
   background: '#010409',
   selection: '#304E75',
   black: '#010409',
-  lightBlack: '#0d1117',
+  lightBlack: '#414853',
   red: '#ff7b72',
   lightRed: '#ff7b72',
   green: '#7ee787',

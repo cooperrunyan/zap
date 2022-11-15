@@ -3,7 +3,7 @@ export const nightOwl = {
   background: '#011627',
   selection: '#243A51',
   black: '#011627',
-  lightBlack: '#05121E',
+  lightBlack: '#49657B',
   red: '#d3423e',
   lightRed: '#d3423e',
   green: '#c5e478',
