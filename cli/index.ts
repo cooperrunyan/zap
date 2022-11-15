@@ -1,5 +1,7 @@
 import { cliffy } from './deps.ts';
 
+import pkg from '../package.json' assert { type: 'json' };
+
 import { config } from './src/commands/config/index.ts';
 import { open } from './src/commands/open/index.ts';
 import { openApp } from './src/lib/openApp.ts';
@@ -7,9 +9,9 @@ import { openApp } from './src/lib/openApp.ts';
 const zap = new cliffy.Command();
 
 zap
-  .name('zap')
+  .name(pkg.name)
   .usage('<subcommand> [args]')
-  .version('1.0.0')
+  .version(pkg.version)
   .action(() => zap.showHelp());
 
 zap.command('open', open);
