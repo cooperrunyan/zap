@@ -6,8 +6,6 @@ import { app, BrowserWindow, globalShortcut, Menu } from 'electron';
 import { terminal } from './terminal';
 import { win as winOptions } from './win';
 
-app.commandLine.appendSwitch('ignore-gpu-blacklist');
-
 async function createWindow() {
   const win = new BrowserWindow(winOptions);
   win.once('ready-to-show', () => win.show());

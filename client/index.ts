@@ -58,7 +58,6 @@ terminal.attachCustomKeyEventHandler((e) => {
 window.addEventListener('resize', resize);
 
 function init(settings: Settings) {
-  console.log('init');
   terminal.options = transformSettings(settings);
   parent.style.padding = settings.window.style.padding;
   resize();
