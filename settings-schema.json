@@ -49,7 +49,7 @@
               "type": "string",
               "default": "null",
               "pattern": "appearance-based|light|dark|titlebar|selection|menu|popover|sidebar|medium-light|ultra-dark|header|sheet|window|hud|fullscreen-ui|tooltip|content|under-window|under-page",
-              "examples": [
+              "enum": [
                 "appearance-based",
                 "light",
                 "dark",
@@ -247,7 +247,7 @@
         "foreground": {
           "title": "Foreground Color",
           "type": "string",
-          "default": "#ccd5e5",
+          "default": "#CCCCCC",
           "description": "Default text color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -263,7 +263,7 @@
         "selection": {
           "title": "Selection Color",
           "type": "string",
-          "default": "#1e2025",
+          "default": "#3B3E46",
           "description": "Default selection color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -280,7 +280,7 @@
         "lightBlack": {
           "title": "Light Black",
           "type": "string",
-          "default": "#49525f",
+          "default": "#808080",
           "description": "lightBlack color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -289,7 +289,7 @@
         "red": {
           "title": "Red",
           "type": "string",
-          "default": "#ff5562",
+          "default": "#EB543B",
           "description": "red color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -297,7 +297,7 @@
         "lightRed": {
           "title": "Light Red",
           "type": "string",
-          "default": "#ff5562",
+          "default": "#EB543B",
           "description": "lightRed color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -306,7 +306,7 @@
         "green": {
           "title": "Green",
           "type": "string",
-          "default": "#8dcf5e",
+          "default": "#1DFF5C",
           "description": "green color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -314,7 +314,7 @@
         "lightGreen": {
           "title": "Light Green",
           "type": "string",
-          "default": "#8dcf5e",
+          "default": "#1DFF5C",
           "description": "lightGreen color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -323,7 +323,7 @@
         "blue": {
           "title": "Blue",
           "type": "string",
-          "default": "#4da5ff",
+          "default": "#009DFF",
           "description": "blue color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -331,7 +331,7 @@
         "lightBlue": {
           "title": "Light Blue",
           "type": "string",
-          "default": "#4da5ff",
+          "default": "#009DFF",
           "description": "lightBlue color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -340,7 +340,7 @@
         "yellow": {
           "title": "Yellow",
           "type": "string",
-          "default": "#d09953",
+          "default": "#FF9900",
           "description": "yellow color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -348,7 +348,7 @@
         "lightYellow": {
           "title": "Light Yellow",
           "type": "string",
-          "default": "#d09953",
+          "default": "#FF9900",
           "description": "lightYellow color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -357,7 +357,7 @@
         "magenta": {
           "title": "Magenta",
           "type": "string",
-          "default": "#cf62ff",
+          "default": "#E339DD",
           "description": "magenta color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -365,7 +365,7 @@
         "lightMagenta": {
           "title": "Light Magenta",
           "type": "string",
-          "default": "#cf62ff",
+          "default": "#E339DD",
           "description": "lightMagenta color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -374,7 +374,7 @@
         "cyan": {
           "title": "Cyan",
           "type": "string",
-          "default": "#46c3d9",
+          "default": "#00FFF0",
           "description": "cyan color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -382,7 +382,7 @@
         "lightCyan": {
           "title": "Light Cyan",
           "type": "string",
-          "default": "#46c3d9",
+          "default": "#00FFF0",
           "description": "lightCyan color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -391,7 +391,7 @@
         "white": {
           "title": "White",
           "type": "string",
-          "default": "#abb2bf",
+          "default": "#cccccc",
           "description": "white color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -399,7 +399,7 @@
         "lightWhite": {
           "title": "Light White",
           "type": "string",
-          "default": "#abb2bf",
+          "default": "#ffffff",
           "description": "lightWhite color (CSS)",
           "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
           "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
@@ -411,22 +411,6 @@
       "type": "object",
       "description": "Settings to style the cursor",
       "properties": {
-        "color": {
-          "title": "Color",
-          "type": "string",
-          "default": "#fff",
-          "description": "Color of the cursor",
-          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
-          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
-        },
-        "accentColor": {
-          "title": "Accent Color",
-          "type": "string",
-          "default": "#000",
-          "description": "Accent colors of the cursor",
-          "examples": ["#fff", "#ccd5e5", "rgb(255, 255, 255)"],
-          "pattern": "^#\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w$|^#\\w\\w\\w\\w\\w\\w\\w\\w$|^rgb\\(\\d+,\\s*\\d+,\\s*\\d+\\)$"
-        },
         "width": {
           "title": "Width",
           "type": "number",
@@ -439,7 +423,7 @@
           "type": "string",
           "pattern": "bar|block|underline",
           "default": "bar",
-          "examples": ["bar", "block", "underline"],
+          "enum": ["bar", "block", "underline"],
           "description": "Shape of the cursor"
         },
         "blink": {
@@ -479,7 +463,7 @@
           "title": "Font Family",
           "description": "The font family to be displayed in the terminal (valid CSS font-family property)",
           "type": "string",
-          "default": "Consolas, \"Roboto Mono\", Menlo, monospace"
+          "default": "\"Roboto Mono\", Consolas, Menlo, monospace"
         },
         "size": {
           "title": "Font Size",
@@ -494,7 +478,7 @@
           "type": "string",
           "default": "normal",
           "pattern": "100|200|300|400|500|600|700|800|900|normal|bold",
-          "examples": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
+          "enum": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
         },
         "weightBold": {
           "title": "Bold Font Weight",
@@ -502,7 +486,7 @@
           "type": "string",
           "default": "bold",
           "pattern": "100|200|300|400|500|600|700|800|900|normal|bold",
-          "examples": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
+          "enum": ["100", "200", "300", "400", "500", "600", "700", "800", "900", "normal", "bold"]
         },
         "lineHeight": {
           "title": "Line Height",

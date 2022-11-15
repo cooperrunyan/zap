@@ -63,8 +63,6 @@ export const defaultSettings = (platform: string) => ({
   },
 
   cursor: {
-    color: '#ffffff',
-    accentColor: '#000000',
     width: 1, // px (only when style is bar)
     style: 'bar', // bar, block, underline
     blink: true
