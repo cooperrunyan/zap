@@ -26,6 +26,7 @@ terminal.loadAddon(webLinksAddon);
 terminal.open(document.getElementById('terminal')!);
 
 terminal.onData((str) => {
+  console.log([str]);
   window.electron.api.emit(`x-stdin-${id}`, str);
 });
 
@@ -37,6 +38,14 @@ terminal.attachCustomKeyEventHandler((e) => {
   if (e.metaKey && e.type === 'keydown') {
     if (e.key === 'Backspace') {
       window.electron.api.emit(`x-stdin-${id}`, '\x15');
+      return false;
+    }
+    if (e.key === 'ArrowLeft') {
+      window.electron.api.emit(`x-stdin-${id}`, '\x01');
+      return false;
+    }
+    if (e.key === 'ArrowLeft') {
+      window.electron.api.emit(`x-stdin-${id}`, '\x05');
       return false;
     }
   }
