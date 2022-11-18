@@ -34,7 +34,6 @@
     "typescript": "^4.6.2"
   },
   "build": {
-    "appId": "com.cooperrunyan.zap",
     "productName": "Zap",
     "asar": true,
     "icon": "./resources/icon.icns",

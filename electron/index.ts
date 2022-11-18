@@ -20,11 +20,6 @@ async function createWindow() {
   // Open the DevTools.
   if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
 
-  globalShortcut.register('Command+Control+Z', () => {
-    app.show();
-    win.show();
-  });
-
   win.on('close', teardown);
 }
 
@@ -36,6 +31,11 @@ app.whenReady().then(async () => {
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+
+  globalShortcut.register('Command+Control+Z', () => {
+    app.show();
+    for (const win of BrowserWindow.getAllWindows()) win.show();
   });
 
   app.dock?.setMenu(Menu.buildFromTemplate([{ label: 'New Window', click: createWindow }]));

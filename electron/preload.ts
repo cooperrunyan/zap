@@ -35,4 +35,5 @@ const api = {
 
   openUrl: (url: string) => open(url)
 };
+
 contextBridge.exposeInMainWorld('electron', { api });

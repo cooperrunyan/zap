@@ -8,12 +8,7 @@ import { Settings } from '../electron/settings';
 import { linkHandler } from './linkHandler';
 import { transformSettings } from './terminal';
 
-const DEL = '\x7F';
-const ENTER = '\r';
-
 const id = new URL(location.href).searchParams.get('id');
-
-let currentLineLength = 0;
 
 const fitAddon = new FitAddon();
 const webLinksAddon = new WebLinksAddon(linkHandler);
@@ -31,25 +26,19 @@ terminal.loadAddon(webLinksAddon);
 terminal.open(document.getElementById('terminal')!);
 
 terminal.onData((str) => {
-  if (str === ENTER) currentLineLength = 0;
   window.electron.api.emit(`x-stdin-${id}`, str);
 });
 
 window.electron.api.on(`x-stdout-${id}`, (stdout: string) => {
-  currentLineLength += stdout.length;
   terminal.write(stdout);
 });
 
 terminal.attachCustomKeyEventHandler((e) => {
-  if (e.key === 'Backspace' && e.metaKey && e.type === 'keydown') {
-    let send = '';
-
-    for (let i = 0; i < currentLineLength; i++) send += DEL;
-
-    window.electron.api.emit(`x-stdin-${id}`, send);
-    currentLineLength = 0;
-
-    return false;
+  if (e.metaKey && e.type === 'keydown') {
+    if (e.key === 'Backspace') {
+      window.electron.api.emit(`x-stdin-${id}`, '\x15');
+      return false;
+    }
   }
 
   return true;
