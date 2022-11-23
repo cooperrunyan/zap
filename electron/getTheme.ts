@@ -7,6 +7,12 @@ import { synthwave } from './themes/synthwave';
 import { tokyoNight } from './themes/tokyoNight';
 import { zap } from './themes/zap';
 
+
+
+
+
+
+
 const themeMap = {
   ayu,
   github,

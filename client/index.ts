@@ -26,7 +26,6 @@ terminal.loadAddon(webLinksAddon);
 terminal.open(document.getElementById('terminal')!);
 
 terminal.onData((str) => {
-  console.log([str]);
   window.electron.api.emit(`x-stdin-${id}`, str);
 });
 
@@ -44,7 +43,7 @@ terminal.attachCustomKeyEventHandler((e) => {
       window.electron.api.emit(`x-stdin-${id}`, '\x01');
       return false;
     }
-    if (e.key === 'ArrowLeft') {
+    if (e.key === 'ArrowRight') {
       window.electron.api.emit(`x-stdin-${id}`, '\x05');
       return false;
     }

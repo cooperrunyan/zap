@@ -1,3 +1,3 @@
-export function linkHandler(e: MouseEvent, url: string) {
-  if (e.ctrlKey || e.metaKey) window.electron.api.openUrl(url);
+export function linkHandler(_: MouseEvent, url: string) {
+  window.electron.api.openUrl(url);
 }

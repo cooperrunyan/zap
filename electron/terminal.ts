@@ -37,9 +37,19 @@ export function terminal(win: BrowserWindow, dir?: string) {
     win.webContents.send(`x-stdout-${win.id}`, stdout);
   });
 
+  const close = () => {
+    if (!win?.isDestroyed()) {
+      ipcMain?.removeAllListeners(`x-term-resize-${win.id}`);
+      ipcMain?.removeAllListeners(`x-stdin-${win.id}`);
+
+      win?.destroy();
+    }
+  };
+
+  pty.onExit(close);
+
   return () => {
+    close();
     pty.kill();
-    ipcMain.removeAllListeners(`x-term-resize-${win.id}`);
-    ipcMain.removeAllListeners(`x-stdin-${win.id}`);
   };
 }
