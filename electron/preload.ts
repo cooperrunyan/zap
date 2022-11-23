@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import { defaultSettings } from './defaultSettings';
-import { Settings, SettingsManager } from './settings';
+import { defaultSettings } from './settings/defaultSettings';
+import { Settings, SettingsManager } from './settings/SettingsManager';
 
 import open from 'open';
 

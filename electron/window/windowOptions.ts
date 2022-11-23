@@ -1,7 +1,7 @@
 import { join } from 'path';
-import { initialSettings as settings } from './settings';
+import { initialSettings as settings } from '../settings/SettingsManager';
 
-export const win: Electron.BrowserWindowConstructorOptions = {
+export const windowOptions: Electron.BrowserWindowConstructorOptions = {
   show: false,
   title: 'Zap',
   tabbingIdentifier: 'Zap',

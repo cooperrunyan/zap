@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { spawn } from 'node-pty';
 import path from 'path';
-import { initialSettings } from './settings';
+import { initialSettings } from './settings/SettingsManager';
 
 export function terminal(win: BrowserWindow, dir?: string) {
   const shell = initialSettings.shell;
