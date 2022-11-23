@@ -29,7 +29,7 @@ export const windowOptions: Electron.BrowserWindowConstructorOptions = {
     y: 12
   },
   webPreferences: {
-    preload: join(__dirname, 'preload.js'),
+    preload: join(__dirname, '../preload.js'),
     webSecurity: true,
     webgl: true,
     nodeIntegration: true
