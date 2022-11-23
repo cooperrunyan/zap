@@ -1,9 +1,9 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app } from 'electron';
 import { spawn } from 'node-pty';
 import path from 'path';
-import { initialSettings } from './settings/SettingsManager';
+import { initialSettings } from '../settings/SettingsManager';
 
-export function terminal(win: BrowserWindow, dir?: string) {
+export function createPty(dir?: string) {
   const shell = initialSettings.shell;
   const env = Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any;
 
@@ -27,29 +27,5 @@ export function terminal(win: BrowserWindow, dir?: string) {
     env
   });
 
-  ipcMain.on(`x-term-resize-${win.id}`, (_, cols, rows) => pty.resize(+cols, +rows));
-
-  ipcMain.on(`x-stdin-${win.id}`, (_, stdin: string) => {
-    pty.write(stdin.valueOf());
-  });
-
-  pty.onData((stdout) => {
-    win.webContents.send(`x-stdout-${win.id}`, stdout);
-  });
-
-  const close = () => {
-    if (!win?.isDestroyed()) {
-      ipcMain?.removeAllListeners(`x-term-resize-${win.id}`);
-      ipcMain?.removeAllListeners(`x-stdin-${win.id}`);
-
-      win?.destroy();
-    }
-  };
-
-  pty.onExit(close);
-
-  return () => {
-    close();
-    pty.kill();
-  };
+  return pty;
 }

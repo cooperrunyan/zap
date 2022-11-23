@@ -14,7 +14,7 @@ app.whenReady().then(async () => {
     for (const win of BrowserWindow.getAllWindows()) win.show();
   });
 
-  app.dock?.setMenu(Menu.buildFromTemplate([{ label: 'New Window', click: createWindow }]));
+  app.dock?.setMenu(Menu.buildFromTemplate([{ label: 'New Window', click: () => createWindow() }]));
 });
 
 app.on('window-all-closed', () => {

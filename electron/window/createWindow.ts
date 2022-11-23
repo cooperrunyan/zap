@@ -1,6 +1,6 @@
 
-import { app, BrowserWindow, } from 'electron';
-import { terminal } from '../terminal';
+import { BrowserWindow } from 'electron';
+import { createTerminal } from '../terminal/createTerminal';
 import { windowOptions } from './windowOptions';
 
 import { loadFile } from './loadFile'
@@ -28,13 +28,13 @@ export async function createWindow() {
   win.once('ready-to-show', () => win.show());
 
   const { dir } = await yargs.option('dir', { type: 'string' }).argv;
+  
+  const terminal = createTerminal(win, dir); 
 
-  loadFile(win);
-
-  const teardown = terminal(win, dir);
+  loadFile(win, terminal.id);
 
   if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
 
-  win.on('close', teardown);
+  win.on('close', terminal.teardown);
 }
 
