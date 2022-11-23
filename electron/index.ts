@@ -1,3 +1,7 @@
+import {app, BrowserWindow, globalShortcut, Menu } from  'electron'
+
+import { createWindow } from './window/createWindow'
+
 app.whenReady().then(async () => {
   await createWindow();
 
