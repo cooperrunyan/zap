@@ -6,8 +6,26 @@ import { win as winOptions } from './win';
 
 import yargs from 'yargs';
 
+import windowStateKeeper from 'electron-window-state';
+
 async function createWindow() {
-  const win = new BrowserWindow(winOptions);
+  const mainWindowState = windowStateKeeper({
+    defaultWidth: 1550,
+    defaultHeight: 850,
+  });
+
+  console.log(app.getPath('userData'))
+
+  const win = new BrowserWindow({
+    ...winOptions,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height
+  });
+
+  mainWindowState.manage(win);
+
   win.once('ready-to-show', () => win.show());
 
   const { dir } = await yargs.option('dir', { type: 'string' }).argv;

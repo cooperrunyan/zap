@@ -2,39 +2,11 @@ export const defaultSettings = (platform: string) => ({
   window: {
     style: {
       padding: '2px 6px 6px 14px',
-      opacity: 1,
       showShadow: true,
       vibrancy: null
     },
-    dimensions: {
-      initialWidth: 1575,
-      initialHeight: 775,
-      minHeight: 190,
-      minWidth: 370,
-      maxWidth: null,
-      maxHeight: null
-    },
-    position: {
-      center: true,
-      initial: {
-        x: null,
-        y: null
-      }
-    },
-
-    can: {
-      move: true,
-      maximize: true,
-      minimize: true,
-      resize: true,
-      close: true,
-      beLargerThanScreen: false
-    },
-
     useNativeAppBar: false,
     acceptFirstMouse: false,
-    remainOnTop: false,
-    paintWhenInitiallyHidden: true,
     showTitle: true
   },
 
