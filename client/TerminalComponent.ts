@@ -3,7 +3,6 @@ import { WebLinksAddon } from 'xterm-addon-web-links';
 
 import { transformSettings } from './transformSettings';
 import { Settings } from '../electron/settings/SettingsManager';
-import { linkHandler } from './linkHandler';
 
 import { Terminal } from 'xterm';
 
@@ -26,7 +25,7 @@ export class TerminalComponent {
     this.terminalId = await window.electron.api.fetchTerminal(this.windowId, this.terminalDir);
 
     this.fitAddon = new FitAddon();
-    this.webLinksAddon = new WebLinksAddon(linkHandler);
+    this.webLinksAddon = new WebLinksAddon((_, url) => window.electron.api.openUrl(url));
 
     this.terminal.loadAddon(this.fitAddon);
     this.terminal.loadAddon(this.webLinksAddon);
