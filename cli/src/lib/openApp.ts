@@ -4,7 +4,6 @@ import { println } from './println.ts';
 
 export async function openApp(args?: string[]) {
   const zapPath = await getAppPath();
-  const runnerPath = Deno.env.get('ZAP_RUNNER_PATH');
 
   if (!zapPath) {
     println(
@@ -13,14 +12,7 @@ export async function openApp(args?: string[]) {
     Deno.exit(1);
   }
 
-  if (!runnerPath) {
-    println(`\n  ${chalk.bold.red('Error:')}\n\n    Cannot find path to zap runner.\n`);
-    Deno.exit(1);
-  }
-
-  const cmd = [zapPath, ...(args || [])];
-
   Deno.run({
-    cmd: [runnerPath, ...cmd]
+    cmd: ['open', zapPath, ...(args || [])]
   }).status();
 }

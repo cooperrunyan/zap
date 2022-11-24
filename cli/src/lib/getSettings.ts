@@ -1,5 +1,5 @@
-import { defaultSettings as getDefaultSettings } from '../../../electron/defaultSettings.ts';
-import { merge } from '../../../electron/merge.ts';
+import { defaultSettings as getDefaultSettings } from '../../../electron/settings/defaultSettings.ts';
+import { merge } from '../../../electron/utils/mergeObjects.ts';
 import { yaml } from '../../deps.ts';
 import { getSettingsPath } from './getSettingsPath.ts';
 

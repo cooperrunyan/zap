@@ -14,8 +14,6 @@ export function createPty(dir?: string) {
     process.env.NODE_ENV === 'development'
       ? path.resolve('dist/mac-arm64/Zap.app/Contents/MacOS/Zap')
       : app.getPath('exe');
-  env.ZAP_RUNNER_PATH =
-    process.env.NODE_ENV === 'development' ? path.resolve('compiled/cli/zap-runner') : path.join(cliPath, 'zap-runner');
 
   if (process.env.NODE_ENV === 'development') env.PATH += `:${path.resolve(__dirname, '../', 'cli')}`;
 

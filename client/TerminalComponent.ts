@@ -18,7 +18,7 @@ export class TerminalComponent {
 
   constructor(private parent: HTMLDivElement, private windowId: string, private terminalDir?: string) {
     TerminalComponent.components.push(this);
-    this.setup()
+    this.setup();
   }
 
   async setup() {
@@ -32,7 +32,7 @@ export class TerminalComponent {
     this.terminal.loadAddon(this.webLinksAddon);
 
     this.terminal.attachCustomKeyEventHandler(this.customKeyEventHandler);
-
+    
     this.attach();
   }
 
@@ -82,6 +82,10 @@ export class TerminalComponent {
 
   public resize() {
     this.fitAddon.fit();
-    window.electron.api.emit(`x-term-resize-${this.terminalId}`, String(this.terminal.cols), String(this.terminal.rows));
+    window.electron.api.emit(
+      `x-term-resize-${this.terminalId}`,
+      String(this.terminal.cols),
+      String(this.terminal.rows)
+    );
   }
 }

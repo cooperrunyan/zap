@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "concurrently \"yarn vite\" \"yarn tsc -p electron && NODE_ENV=development yarn electron .\"",
     "build": "yarn build:cli && tsc -p electron && vite build && electron-builder",
-    "build:cli": "cd cli && deno compile -A --unstable --output ../compiled/cli/zap index.ts && cd detached-runner && go build -o ../../compiled/cli/zap-runner && cd ../..",
+    "build:cli": "cd cli && deno compile -A --unstable --output ../compiled/cli/zap index.ts && cd ..",
     "clean": "rimraf dist compiled",
     "postinstall": "electron-builder install-app-deps"
   },
@@ -146,7 +146,6 @@
     },
     "extraResources": [
       "compiled/cli/zap",
-      "compiled/cli/run",
       "settings-schema.json"
     ]
   }
