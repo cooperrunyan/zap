@@ -1,4 +1,4 @@
-import { Settings } from '../electron/settings';
+import { Settings } from '../electron/settings/SettingsManager';
 
 export const transformSettings = (settings: Settings) =>
   ({

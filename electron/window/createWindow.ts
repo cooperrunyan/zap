@@ -1,15 +1,16 @@
-
-import { BrowserWindow } from 'electron';
-import { createTerminal } from '../terminal/createTerminal';
+import { BrowserWindow, ipcMain } from 'electron';
 import { windowOptions } from './windowOptions';
 
-import { loadFile } from './loadFile'
+import { getWindowFromId } from './getWindowFromId'
 
-import yargs from 'yargs';
+import { loadFile } from './loadFile';
+
+import type { getArgs } from '../args';
 
 import windowStateKeeper from 'electron-window-state';
+import { createTerminal } from '../terminal/createTerminal';
 
-export async function createWindow() {
+export async function createWindow(args: Awaited<ReturnType<typeof getArgs>>) {
   const mainWindowState = windowStateKeeper({
     defaultWidth: 1550,
     defaultHeight: 850
@@ -27,14 +28,18 @@ export async function createWindow() {
 
   win.once('ready-to-show', () => win.show());
 
-  const { dir } = await yargs.option('dir', { type: 'string' }).argv;
-  
-  const terminal = createTerminal(win, dir); 
+  ipcMain.handle(`x-request-terminal-win${win.id}`, (_, windowId: string, dir?: string) => {
+    const win = getWindowFromId(windowId);
 
-  loadFile(win, terminal.id);
+    const terminal = createTerminal(win, dir);
+
+    win.on('close', () => terminal.teardown());
+
+    return terminal.id;
+  })
+
+
+  loadFile(win, args.dir);
 
   if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
-
-  win.on('close', terminal.teardown);
 }
-

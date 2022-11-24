@@ -9,7 +9,7 @@ export function createTerminal(win: BrowserWindow, dir?: string) {
   ipcMain.on(`x-term-resize-${id}`, (_, cols, rows) => pty.resize(+cols, +rows));
   ipcMain.on(`x-stdin-${id}`, (_, stdin: string) => pty.write(stdin.valueOf()));
 
-  pty.onData((stdout) => win.webContents.send(`x-stdout-${id}`, stdout))
+  pty.onData((stdout) => win.webContents.send(`x-stdout-${id}`, stdout));
 
   const close = () => {
     if (!win?.isDestroyed()) {
@@ -20,11 +20,11 @@ export function createTerminal(win: BrowserWindow, dir?: string) {
 
   pty.onExit(close);
 
-  return { 
-    id, 
+  return {
+    id,
     teardown: () => {
       close();
       pty.kill();
-    },
-  }
+    }
+  };
 }

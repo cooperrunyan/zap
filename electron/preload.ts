@@ -1,8 +1,11 @@
-import { contextBridge, ipcRenderer } from 'electron';
+import { BrowserWindow, contextBridge, ipcRenderer } from 'electron';
 import { defaultSettings } from './settings/defaultSettings';
 import { Settings, SettingsManager } from './settings/SettingsManager';
 
+import { createTerminal } from './terminal/createTerminal';
+
 import open from 'open';
+import { getWindowFromId } from './window/getWindowFromId';
 
 declare global {
   interface Window {
@@ -33,7 +36,11 @@ const api = {
     set: (val: ReturnType<typeof defaultSettings>) => settings.setSettings(val)
   },
 
-  openUrl: (url: string) => open(url)
+  openUrl: (url: string) => open(url),
+
+  fetchTerminal: (windowId: string, dir?: string) => {
+    return ipcRenderer.invoke(`x-request-terminal-win${windowId}`, windowId, dir) 
+  }
 };
 
 contextBridge.exposeInMainWorld('electron', { api });
