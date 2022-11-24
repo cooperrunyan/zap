@@ -15,7 +15,10 @@ export function createPty(dir?: string) {
       ? path.resolve('dist/mac-arm64/Zap.app/Contents/MacOS/Zap')
       : app.getPath('exe');
 
-  if (process.env.NODE_ENV === 'development') env.PATH += `:${path.resolve(__dirname, '../', 'cli')}`;
+  env.ZAP_RUNNER_PATH =
+    process.env.NODE_ENV === 'development' ? path.resolve('compiled/cli/zap-runner') : path.join(cliPath, 'zap-runner');
+
+  if (process.env.NODE_ENV === 'development') env.PATH += `:${path.resolve(__dirname, '../../', 'cli')}`;
 
   const pty = spawn(shell.name, shell.shellArgs, {
     name: 'xterm-256color',

@@ -31,8 +31,8 @@ export class TerminalComponent {
     this.terminal.loadAddon(this.fitAddon);
     this.terminal.loadAddon(this.webLinksAddon);
 
-    this.terminal.attachCustomKeyEventHandler(this.customKeyEventHandler);
-    
+    this.terminal.attachCustomKeyEventHandler((e) => this.customKeyEventHandler(e));
+
     this.attach();
   }
 
