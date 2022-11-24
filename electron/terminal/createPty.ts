@@ -7,7 +7,7 @@ export function createPty(dir?: string) {
   const shell = initialSettings.shell;
   const env = Object.fromEntries(Object.entries(process.env).filter((v) => !v[0]!.startsWith('npm'))) as any;
 
-  const cliPath = path.resolve(__dirname, '../../../', 'compiled', 'cli');
+  const cliPath = path.resolve(__dirname, '../../../../', 'compiled', 'cli');
 
   env.PATH += `:${cliPath}`;
   env.ZAP_APP_PATH =
