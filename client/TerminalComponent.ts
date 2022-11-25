@@ -87,4 +87,8 @@ export class TerminalComponent {
       String(this.terminal.rows)
     );
   }
+
+  public focus() {
+    this.terminal.focus()
+  }
 }
