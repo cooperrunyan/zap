@@ -8,8 +8,7 @@
   "description": "Terminal app",
   "scripts": {
     "dev": "concurrently \"yarn vite\" \"yarn tsc -p electron && NODE_ENV=development yarn electron .\"",
-    "build": "yarn build:cli && tsc -p electron && vite build && electron-builder",
-    "build:cli": "cd cli && deno compile -A --unstable --output ../compiled/cli/zap index.ts && cd detached-runner && go build -o ../../compiled/cli/zap-runner && cd ../..",
+    "build": "tsc -p electron && vite build && electron-builder",
     "clean": "rimraf dist compiled",
     "postinstall": "electron-builder install-app-deps"
   },

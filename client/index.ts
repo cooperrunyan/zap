@@ -1,7 +1,7 @@
 import { initWindow } from './initWindow';
 import { TerminalComponent } from './TerminalComponent';
 import { Settings } from '../electron/settings/SettingsManager';
-import { params } from './params'
+import { params } from './params';
 import { openSettings } from './openSettings';
 
 import 'xterm/css/xterm.css';
@@ -13,8 +13,10 @@ const parent = document.querySelector('#parent')! as HTMLDivElement;
 
 new TerminalComponent(parent, params.windowId, params.dir ? params.dir : undefined);
 
-if (params.openSettingsInitially) openSettings()
+if (params.openSettingsInitially) openSettings();
 
 window.addEventListener('keydown', (e) => {
-  if (e.metaKey && e.key === ',') openSettings()
-})
+  if (e.metaKey && e.key === ',') openSettings();
+});
+
+openSettings();

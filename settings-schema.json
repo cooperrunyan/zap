@@ -5,64 +5,71 @@
   "description": "Settings for Zap terminal app",
   "type": "object",
   "properties": {
+    "style": {
+      "title": "Style",
+      "description": "Namespace for settings that relate to window styles",
+      "type": "object",
+
+      "properties": {
+        "theme": {
+          "title": "Theme",
+          "type": "string",
+          "description": "The theme of the terminal",
+          "default": "zap",
+          "enum": ["\"zap\"", "\"ayu\"", "\"github\"", "\"one-dark\"", "\"nord\"", "\"night-owl\"", "\"synthwave\""]
+        },
+        "padding": {
+          "title": "Padding",
+          "$comment": "This should be valid CSS (padding property)",
+          "examples": ["10px", "2px, 8px", "4px, 6px, 8px, 10px"],
+          "default": "6px, 14px",
+          "description": "Space around the terminal content",
+          "type": "string"
+        },
+        "showShadow": {
+          "title": "Show Shadow",
+          "default": true,
+          "description": "Whether or not to show a shadow under the window",
+          "type": "boolean",
+          "examples": ["true", "false"]
+        },
+        "vibrancy": {
+          "title": "Vibrancy",
+          "description": "Add a vibrancy effect to the window",
+          "$comment": "Only for MacOS",
+          "type": "string",
+          "default": "null",
+          "pattern": "appearance-based|light|dark|titlebar|selection|menu|popover|sidebar|medium-light|ultra-dark|header|sheet|window|hud|fullscreen-ui|tooltip|content|under-window|under-page",
+          "enum": [
+            "appearance-based",
+            "light",
+            "dark",
+            "titlebar",
+            "selection",
+            "menu",
+            "popover",
+            "sidebar",
+            "medium-light",
+            "ultra-dark",
+            "header",
+            "sheet",
+            "window",
+            "hud",
+            "fullscreen-ui",
+            "tooltip",
+            "content",
+            "under-window",
+            "under-page"
+          ]
+        }
+      }
+    },
     "window": {
       "title": "Window",
       "description": "Namespace for settings that relate to the window",
       "type": "object",
 
       "properties": {
-        "style": {
-          "title": "Style",
-          "description": "Namespace for settings that relate to window styles",
-          "type": "object",
-
-          "properties": {
-            "padding": {
-              "title": "Padding",
-              "$comment": "This should be valid CSS (padding property)",
-              "examples": ["10px", "2px, 8px", "4px, 6px, 8px, 10px"],
-              "default": "6px, 14px",
-              "description": "Space around the terminal content",
-              "type": "string"
-            },
-            "showShadow": {
-              "title": "Show Shadow",
-              "default": true,
-              "description": "Whether or not to show a shadow under the window",
-              "type": "boolean",
-              "examples": ["true", "false"]
-            },
-            "vibrancy": {
-              "title": "Vibrancy",
-              "description": "Add a vibrancy effect to the window",
-              "$comment": "Only for MacOS",
-              "type": "string",
-              "default": "null",
-              "pattern": "appearance-based|light|dark|titlebar|selection|menu|popover|sidebar|medium-light|ultra-dark|header|sheet|window|hud|fullscreen-ui|tooltip|content|under-window|under-page",
-              "enum": [
-                "appearance-based",
-                "light",
-                "dark",
-                "titlebar",
-                "selection",
-                "menu",
-                "popover",
-                "sidebar",
-                "medium-light",
-                "ultra-dark",
-                "header",
-                "sheet",
-                "window",
-                "hud",
-                "fullscreen-ui",
-                "tooltip",
-                "content",
-                "under-window",
-                "under-page"
-              ]
-            }
-          }
-        },
         "useNativeAppBar": {
           "title": "Use Native App Bar",
           "type": "boolean",
@@ -84,17 +91,10 @@
         }
       }
     },
-    "theme": {
-      "title": "Theme",
-      "type": "string",
-      "description": "The theme of the terminal",
-      "default": "zap",
-      "enum": ["\"zap\"", "\"ayu\"", "\"github\"", "\"one-dark\"", "\"nord\"", "\"night-owl\"", "\"synthwave\""]
-    },
     "color": {
       "title": "Theme Overrides",
       "type": "object",
-      "description": "Properties to customize theme pallette",
+      "description": "Properties to customize theme palette",
       "properties": {
         "foreground": {
           "title": "Foreground Color",
@@ -307,7 +307,7 @@
       }
     },
     "font": {
-      "name": "Font",
+      "title": "Font",
       "description": "Settings to control font appearance",
       "type": "object",
       "properties": {

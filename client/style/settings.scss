@@ -1,0 +1,92 @@
+.settings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+  color: var(--foreground);
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  
+  .upperBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .close-settings {
+    background: none;
+    border: none !important;
+    outline: none !important;
+    font-family: var(--font-family, monospace);
+    color: var(--lightBlack);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      color: var(--foreground);
+    }
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px;
+      transition: all 0.1s ease-in-out;
+      border-radius: 2px;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all 0.1s ease-in-out;
+        background: var(--foreground);
+        pointer-events: none;
+        border-radius: inherit;
+      }
+
+      &:hover::before {
+        opacity: 0.1;
+      }
+
+      p {
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
